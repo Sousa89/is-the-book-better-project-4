@@ -1,7 +1,6 @@
 import "./App.css";
+import MovieApi from "./MovieApi";
 // import { Routes, Route } from "react-router-dom";
-
-// import MovieApi from "./Movie-api";
 
 function App() {
   return (
@@ -9,6 +8,7 @@ function App() {
       {/* <Routes>
       <Route></Route>
     </Routes> */}
+      <MovieApi />
     </div>
   );
 }
