@@ -1,33 +1,39 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Display from "./Display";
 
 const BookApi = () => {
-    useEffect ( () => {
-    console.log('Side effect is running');
+  const [bookData, setBookData] = useState(!true);
+  useEffect(() => {
+    console.log("Side effect is running");
     axios({
-        url: `https://www.googleapis.com/books/v1/volumes`,
-        params: {
-            q: {},
-            key: 'AIzaSyC7nVvFwC8qpnCDnddeOCwnTXZLdwJKQuk',
-            maxResults: "40",
-            zoom: "4"
-        }
-    }).then( (results) => {
-        console.log(results);
-        
-    })
+      url: `https://www.googleapis.com/books/v1/volumes`,
+      params: {
+        q: "Fight Club",
+        key: "AIzaSyC7nVvFwC8qpnCDnddeOCwnTXZLdwJKQuk",
+        maxResults: "40",
+        zoom: 4,
+      },
+    }).then((results) => {
+      setBookData(results.data.items[0].volumeInfo);
+      console.log(results.data.items[0].volumeInfo);
+    });
   }, []);
 
   return (
-    <h2>Here are your options:</h2>
-  )
-
-}
+    <div>
+      {bookData === false ? null : (
+        <Display
+          image={bookData.imageLinks.thumbnail}
+          voteAvg={bookData.averageRating}
+          overview={bookData.description}
+          title={bookData.title}
+          releaseDate={bookData.publishedDate}
+          author={bookData.authors}
+        />
+      )}
+    </div>
+  );
+};
 
 export default BookApi;
-
-
-
-
