@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Display from "./Display";
 
-const BookApi = () => {
+const BookApi = (props) => {
   const [bookData, setBookData] = useState(true);
   const [bookImage, setBookImage] = useState(null);
 
@@ -11,7 +11,7 @@ const BookApi = () => {
     axios({
       url: `https://www.googleapis.com/books/v1/volumes`,
       params: {
-        q: "Fight Club",
+        q: props.formSearch2,
         key: "AIzaSyC7nVvFwC8qpnCDnddeOCwnTXZLdwJKQuk",
         maxResults: "40",
         zoom: 4,
@@ -25,8 +25,9 @@ const BookApi = () => {
       .catch((err) => {
         console.log("ERROR ", err);
       });
-  }, []);
+  }, [props]);
 
+  props.getTitle2(bookData.title);
   // if (bookData.imageLinks) {
   //   const bookImage = bookData.imageLinks.thumbnail;
   //   console.log("bookImage ", bookImage);

@@ -41,6 +41,9 @@
   height: 300px;
   width: 300px;
 }
+imageContainer {
+  width: 300px;
+}
 
 img {
   width: 100%;

@@ -20,14 +20,14 @@ const MovieApi = (props) => {
       params: {
         api_key: "80b3efd6913b7c0573391241f786ea80",
 
-        query: "Fight Club",
+        query: props.formSearch2,
       },
     }).then((apiData) => {
       console.log(apiData.data.results[0]);
       setMovieData(apiData.data.results[0]);
       console.log(apiData);
     });
-  }, []);
+  }, [props]);
 
   return (
     <div>

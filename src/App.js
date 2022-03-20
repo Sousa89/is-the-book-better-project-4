@@ -1,34 +1,29 @@
 import "./App.css";
 import Form from "./Form";
 
+import Results from "./Results";
+import { useState } from "react";
 
-import BookApi from './BookApi';
-import MovieApi from "./MovieApi";
-import {useState} from 'react';
-
-// import { Routes, Route } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const[searchParams,setSearchParams] = useState(null)
-  
-  const getSearchParams=(e,filter) =>{
-    console.log("submit")
+  const [searchParams, setSearchParams] = useState(null);
+
+  const getSearchParams = (e, filter) => {
+    console.log("submit");
     e.preventDefault();
-    setSearchParams(filter)
-
-    
-
-  }
-  console.log(searchParams)
+    setSearchParams(filter);
+  };
+  console.log(searchParams);
   return (
     <div className="App">
-     <Form handleSubmit={getSearchParams} /> 
-      {/* <Routes>
-  <Route path="/:results" element={<MovieInfo />} />
-</Routes>; */}
-      <MovieApi />
-      <BookApi />
+      <Routes>
+        <Route path="/" element={<Form handleSubmit={getSearchParams} />} />
+        <Route
+          path="/:results"
+          element={<Results formSearch={searchParams} />}
+        />
+      </Routes>
       {/* display */}
     </div>
   );
