@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.MovieContainer {
+  height: 300px;
+  width: 300px;
+}
+
+img {
+  width: 100%;
+}
