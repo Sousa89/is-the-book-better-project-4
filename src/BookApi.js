@@ -3,7 +3,9 @@ import axios from "axios";
 import Display from "./Display";
 
 const BookApi = () => {
-  const [bookData, setBookData] = useState(!true);
+  const [bookData, setBookData] = useState(true);
+  const [bookImage, setBookImage] = useState(null);
+
   useEffect(() => {
     console.log("Side effect is running");
     axios({
@@ -14,24 +16,32 @@ const BookApi = () => {
         maxResults: "40",
         zoom: 4,
       },
-    }).then((results) => {
-      setBookData(results.data.items[0].volumeInfo);
-      console.log(results.data.items[0].volumeInfo);
-    });
+    })
+      .then((results) => {
+        console.log(results.data.items[0].volumeInfo);
+        setBookData(results.data.items[0].volumeInfo);
+        setBookImage(results.data.items[0].volumeInfo.imageLinks.thumbnail);
+      })
+      .catch((err) => {
+        console.log("ERROR ", err);
+      });
   }, []);
+
+  // if (bookData.imageLinks) {
+  //   const bookImage = bookData.imageLinks.thumbnail;
+  //   console.log("bookImage ", bookImage);
+  // }
 
   return (
     <div>
-      {bookData === false ? null : (
-        <Display
-          image={bookData.imageLinks.thumbnail}
-          voteAvg={bookData.averageRating}
-          overview={bookData.description}
-          title={bookData.title}
-          releaseDate={bookData.publishedDate}
-          author={bookData.authors}
-        />
-      )}
+      <Display
+        image={bookImage}
+        voteAvg={bookData.averageRating}
+        overview={bookData.description}
+        title={bookData.title}
+        releaseDate={bookData.publishedDate}
+        author={bookData.authors}
+      />
     </div>
   );
 };

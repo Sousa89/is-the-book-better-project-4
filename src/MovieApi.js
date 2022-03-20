@@ -25,6 +25,7 @@ const MovieApi = (props) => {
     }).then((apiData) => {
       console.log(apiData.data.results[0]);
       setMovieData(apiData.data.results[0]);
+      console.log(apiData);
     });
   }, []);
 
@@ -32,10 +33,12 @@ const MovieApi = (props) => {
     <div>
       <Display
         image={movieData.poster_path}
-        // voteAvg={movieData.vote_average}
+        voteAvg={movieData.vote_average}
         overview={movieData.overview}
         title={movieData.title}
         releaseDate={movieData.release_date}
+        // director={}
+        // stars={}
       />
     </div>
   );

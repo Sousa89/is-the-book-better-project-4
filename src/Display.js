@@ -7,7 +7,7 @@ const Display = (props) => {
       <div className="displayContainer">
         <h1>{props.title}</h1>
         <div className="imageContainer">
-          {props.thumbnail ? (
+          {props.author ? (
             <img src={`${props.image}`} alt={`cover for ${props.title}`} />
           ) : (
             <img
@@ -16,16 +16,13 @@ const Display = (props) => {
             />
           )}
         </div>
-        {/* end of imageContainer */}
-
         {/* end of  imageContainer div */}
-        <div className="textContainer">
-          <h4>{props.releaseDate}</h4>
-          <h4>Author</h4>
-          <p>{props.author}</p>
-          <h4>Director:</h4>
-          <p>Joe blow</p>
 
+        <div className="textContainer">
+          <h4>{props.author ? "Author" : "Director"}</h4>
+          <p>{props.author ? props.author : props.director}</p>
+          <h4>{props.releaseDate}</h4>
+          {/* stars */}
           <p>{props.overview}</p>
         </div>
         {/* end of textContainer */}
