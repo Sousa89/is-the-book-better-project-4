@@ -15,6 +15,8 @@ function App() {
     e.preventDefault();
     setSearchParams(filter)
 
+    
+
   }
   console.log(searchParams)
   return (

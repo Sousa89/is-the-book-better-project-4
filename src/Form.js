@@ -1,18 +1,26 @@
 import {useState} from 'react'
 const Form=(props)=>{
 
-    const[form, setForm]=useState (null)
+    const[form, setForm]=useState ('')
     const handleChange= (e) =>{
         console.log (e.target.value)
         setForm(e.target.value)
+       
 
 
     }
 
+    const handleSubmit=(e) =>{
+    
+   
+    props.handleSubmit(e, form)
+    setForm('')
+
+    }
     return(
 
-        <form onSubmit={(e)=>props.handleSubmit(e,form)} className="search-form" >
-            <label htmlFor="userSearch" className="sr-only">
+        <form onSubmit={handleSubmit} className="search-form"  >
+            <label htmlFor="userSearch" className="sr-only" >
                 enter movie/book title
 
                 
