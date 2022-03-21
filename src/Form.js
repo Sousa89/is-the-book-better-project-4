@@ -5,6 +5,7 @@ const Form = (props) => {
   const handleChange = (e) => {
     console.log(e.target.value);
     setForm(e.target.value);
+    // props.handleSubmit(e, form);
   };
 
   const handleSubmit = (e) => {
