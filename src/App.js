@@ -8,10 +8,10 @@ function App() {
   const [searchParams, setSearchParams] = useState(null);
 
   const getSearchParams = (e, filter) => {
-    console.log("submit");
+    // console.log("submit");
     e.preventDefault();
     setSearchParams(filter);
-    console.log('App.js', searchParams);
+    // console.log('App.js', searchParams);
   };
   return (
     <div className="App">
@@ -20,7 +20,7 @@ function App() {
         <Route
           path="/results"
           element={<Results formSearch={searchParams} />}
-          />
+        />
       </Routes>
       {/* display */}
     </div>

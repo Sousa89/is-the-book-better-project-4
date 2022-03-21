@@ -1,6 +1,8 @@
 // Display.js;
 
 const Display = (props) => {
+  // console.log(`checking STARS1`, props.stars1, props.stars2, props.stars3);
+
   return (
     // <div className="wrapper"></div>
     <>
@@ -22,7 +24,9 @@ const Display = (props) => {
           <h4>{props.author ? "Author" : "Director"}</h4>
           <p>{props.author ? props.author : props.director}</p>
           <h4>{props.releaseDate}</h4>
-          {/* stars */}
+          <p>{props.stars1}</p>
+          <p>{props.stars2}</p>
+          <p>{props.stars3}</p>
           <p>{props.overview}</p>
         </div>
         {/* end of textContainer */}
