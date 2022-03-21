@@ -1,9 +1,7 @@
 import "./App.css";
 import Form from "./Form";
-
 import Results from "./Results";
 import { useState } from "react";
-
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -13,16 +11,16 @@ function App() {
     console.log("submit");
     e.preventDefault();
     setSearchParams(filter);
+    console.log('App.js', searchParams);
   };
-  console.log(searchParams);
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Form handleSubmit={getSearchParams} />} />
         <Route
-          path="/:results"
+          path="/results"
           element={<Results formSearch={searchParams} />}
-        />
+          />
       </Routes>
       {/* display */}
     </div>
