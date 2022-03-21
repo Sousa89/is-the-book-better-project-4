@@ -8,7 +8,8 @@ import Display from "./Display";
 
 const MovieApi = (props) => {
   // declare useState
-
+  console.log("Movie Side effect is running");
+  console.log(props.formSearch2);
   const [movieData, setMovieData] = useState({});
 
   //wrap the api call in the useEffect State
@@ -26,7 +27,10 @@ const MovieApi = (props) => {
       console.log(apiData.data.results[0]);
       setMovieData(apiData.data.results[0]);
       console.log(apiData);
-    });
+    })
+    .catch((err) => {
+      console.log("MOVIE ERROR ", err);
+    });;
   }, [props]);
 
   return (
