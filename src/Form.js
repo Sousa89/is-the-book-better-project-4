@@ -12,7 +12,7 @@ const Form = (props) => {
     setForm("");
   };
   return (
-    <form onSubmit={handleSubmit} className="search-form">
+    <form onClick={handleSubmit} className="search-form">
       <label htmlFor="userSearch" className="sr-only">
         enter movie/book title
       </label>

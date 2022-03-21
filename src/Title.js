@@ -1,6 +1,6 @@
 // Title.js
 
-const Title = () => {
+const Title = (props) => {
   return <div></div>;
 };
 
