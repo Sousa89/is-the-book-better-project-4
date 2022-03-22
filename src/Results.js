@@ -23,12 +23,14 @@ const Results = (props) => {
     setMovieRating(getRating)
   }
   return (
-    <div>
-      <Title title={title} />
-      <BookApi formSearch2={props.formSearch} getTitle2={getTitle} getBookRating2={getBookRating}/>
-      <MovieApi formSearch2={props.formSearch} getMovieRating2={getMovieRating} />
-      <BackButton />
-      <Rating bRating={bookRating} mRating={movieRating}/>
+    <div className="results">
+      <Title title={title}/>
+      <div className="wrapper">
+        <BookApi formSearch2={props.formSearch} getTitle2={getTitle} getBookRating2={getBookRating}/>
+        <Rating bRating={bookRating} mRating={movieRating}/>
+        <MovieApi formSearch2={props.formSearch} getMovieRating2={getMovieRating} />
+      </div>
+      <BackButton/>
     </div>
   );
 };

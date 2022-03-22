@@ -2,8 +2,8 @@
 
 const Title = (props) => {
   return (
-    <div className="title">
-      <h1>Title from Title.js - {props.title}</h1>
+    <div className = "title">
+      <h1>{props.title}</h1>
     </div>
   );
 };

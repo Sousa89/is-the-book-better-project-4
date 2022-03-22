@@ -6,6 +6,7 @@ const Rating = (props) => {
   return (
     <div className="rating">
       <h2>This is the ratings</h2>
+      <h3>VS</h3>
       <p>Book rate: {newBookRating}</p>
       <p>Movie rate: {props.mRating}</p>
       <Winner book={newBookRating} movie={props.mRating}/>
