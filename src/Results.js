@@ -5,6 +5,7 @@ import BackButton from "./BackButton";
 import { useState } from "react";
 import Title from "./Title";
 import Rating from "./Rating";
+import Versus from "./Versus";
 // import { useParams } from "react-router-dom";
 
 const Results = (props) => {
@@ -27,6 +28,7 @@ const Results = (props) => {
       <Title title={title}/>
       <div className="wrapper">
         <BookApi formSearch2={props.formSearch} getTitle2={getTitle} getBookRating2={getBookRating}/>
+        <Verus />
         <Rating bRating={bookRating} mRating={movieRating}/>
         <MovieApi formSearch2={props.formSearch} getMovieRating2={getMovieRating} />
       </div>
