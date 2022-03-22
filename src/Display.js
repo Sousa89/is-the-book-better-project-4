@@ -5,9 +5,7 @@ const Display = (props) => {
 
   return (
     // <div className="wrapper"></div>
-    <>
-      <div className="displayContainer">
-        <h1>{props.title}</h1>
+      <div className="display">
         <div className="imageContainer">
           {props.author ? (
             <img src={`${props.image}`} alt={`cover for ${props.title}`} />
@@ -31,8 +29,7 @@ const Display = (props) => {
         </div>
         {/* end of textContainer */}
       </div>
-      {/* end of displayContainer div */}
-    </>
+      // end of displayContainer div
   );
 };
 export default Display;

@@ -26,6 +26,7 @@ const BookApi = (props) => {
         setBookImage(results.data.items[0].volumeInfo.imageLinks.thumbnail);
         // console.log("OVER HERE ", bookData.title);
         props.getTitle2(bookData.title);
+        props.getBookRating2(bookData.averageRating);
       })
       .catch((err) => {
         // console.log("BOOK ERROR ", err);
@@ -38,10 +39,9 @@ const BookApi = (props) => {
   // }
 
   return (
-    <div>
+    <div className="bookApi">
       <Display
         image={bookImage}
-        voteAvg={bookData.averageRating}
         overview={bookData.description}
         title={bookData.title}
         releaseDate={bookData.publishedDate}
