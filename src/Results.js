@@ -18,21 +18,28 @@ const Results = (props) => {
   };
   // console.log("Results.js", props.formSearch);
   const getBookRating = (getRating) => {
-    setBookRating(getRating)
-  }
+    setBookRating(getRating);
+  };
   const getMovieRating = (getRating) => {
-    setMovieRating(getRating)
-  }
+    setMovieRating(getRating);
+  };
   return (
     <div className="results">
-      <Title title={title}/>
+      <Title title={title} />
       <div className="wrapper">
-        <BookApi formSearch2={props.formSearch} getTitle2={getTitle} getBookRating2={getBookRating}/>
-        <Verus />
-        <Rating bRating={bookRating} mRating={movieRating}/>
-        <MovieApi formSearch2={props.formSearch} getMovieRating2={getMovieRating} />
+        <BookApi
+          formSearch2={props.formSearch}
+          getTitle2={getTitle}
+          getBookRating2={getBookRating}
+        />
+        <Versus />
+        <Rating bRating={bookRating} mRating={movieRating} />
+        <MovieApi
+          formSearch2={props.formSearch}
+          getMovieRating2={getMovieRating}
+        />
       </div>
-      <BackButton/>
+      <BackButton />
     </div>
   );
 };

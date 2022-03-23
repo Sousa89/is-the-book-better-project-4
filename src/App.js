@@ -13,12 +13,9 @@ function App() {
     e.preventDefault();
     setSearchParams(filter);
   };
-  
+
   return (
-
     <div className="App">
-
-   
       <Routes>
         <Route path="/" element={<Form handleSubmit={getSearchParams} />} />
         <Route
@@ -27,8 +24,8 @@ function App() {
         />
       </Routes>
 
-      <Footer/>
-
+      <BackgroundVideo />
+      <Footer />
       {/* display */}
     </div>
   );

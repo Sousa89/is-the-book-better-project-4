@@ -1,5 +1,3 @@
-// BackgroundVideo.js
-
 import backgroundVideo1 from "./videoFiles/library.mp4";
 
 const BackgroundVideo = (props) => {
