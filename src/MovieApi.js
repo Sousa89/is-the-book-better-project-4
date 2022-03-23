@@ -5,6 +5,8 @@ import axios from "axios";
 // import state/ useEffect
 import { useState, useEffect } from "react";
 import Display from "./Display";
+import Cast from "./Cast";
+
 
 const MovieApi = (props) => {
   // declare useState
@@ -57,6 +59,11 @@ const MovieApi = (props) => {
     });
   }, [movieData]);
   // console.log(`checking cast data`, castData1, castData2, castData3);
+
+  // console.log(movieData.id);
+  let test = Cast(movieData.id);
+  console.log("OVER HERE", test);
+
 
   const directorName = directorData.map((director) => {
     if (director.job === "Director") {
