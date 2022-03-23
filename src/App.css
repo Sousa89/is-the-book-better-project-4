@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&family=Maitree&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400;600&family=Maitree&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400;600&family=Montserrat&display=swap");
 
 html {
   line-height: 1.15;
@@ -238,14 +238,28 @@ h3,
 h4 {
   font-family: "maitree";
   margin: 0;
+  font-weight: 600;
 }
 p {
   font-family: "montserrat";
+  width: 73%;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px 0;
+}
+/* h4 {
+  font-weight: bold;
+} */
+.App {
+  /* background-color: #5da9c29d; */
+  background-color: #271870c0;
 }
 
 /* Forms.js */
 .formComp {
-  background-color: cyan;
+  /* background-color: #5da9c29d; */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -256,16 +270,47 @@ p {
 .formComp form {
   display: flex;
   flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+}
+
+.formComp input {
+  position: relative;
+  border-radius: 30px;
+  width: 425px;
+  height: 43px;
+  padding-left: 25px;
+  border: none;
+  background-color: #00000078;
+  color: white;
 }
 
 .formComp button {
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 3px 5px rgba(100, 100, 100, 0.8);
+  border-radius: 30px;
   align-items: center;
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  box-shadow: none;
+  background: lightblue;
+  width: 112px;
+  height: 34px;
+}
+
+.formComp button:hover {
+  border: none;
+  border-radius: 10px;
+  background-color: #ace8cd;
 }
 
 /* Header.js */
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Resutls.js */
 .results .wrapper {
@@ -279,35 +324,62 @@ p {
 }
 
 /* BookApi.js */
-.bookApi {
-  width: 40%;
+.generalApiContainer {
+  width: 41%;
+  background-color: #0000009c;
+  border-radius: 11px;
+  margin: 0 3%;
 }
 
-/* Movie.js */
-.movieApi {
-  width: 40%;
+.generalApiContainer .textContainer {
+  background-color: #7fffd4c9;
+  margin: 6%;
+  border-radius: 19px;
+  padding: 9%;
 }
 
-/* Display.js */
-/* .imageContainer {
-} */
+.generalApiContainer img {
+  padding: 20px;
+  border-radius: 30px;
+}
 
-/* Rating.js */
+.generalApiContainer > div:nth-child(1) > div:nth-child(2) > p:nth-child(7) {
+  width: 100%;
+  margin-top: 31px;
+}
+/* -----VERSUS/RATING CONTAINER---- */
+.versusRatingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 117px;
+}
+
+.winner {
+  display: none;
+}
+
 .rating {
-  width: 20%;
+  width: 100%;
+  background-color: #0000009e;
 }
 
-/* BackButton.js */
+.ratingTextcontainer {
+  margin: 10%;
+  background-color: #7fffd4c2;
+}
+
+.versus {
+  margin: 200px 0;
+  width: 100%;
+  text-align: center;
+}
+
 .back {
   text-align: center;
 }
 
 /* versus.js */
-.versus {
-  margin: 0;
-  padding: 0;
-  font-size: 5em;
-}
 
 /* Background video */
 

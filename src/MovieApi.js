@@ -37,7 +37,7 @@ const MovieApi = (props) => {
         // console.log(apiData.data.results[0]);
         setMovieData(apiData.data.results[0]);
         // console.log(apiData);
-        props.getMovieRating2(movieData.vote_average)
+        props.getMovieRating2(movieData.vote_average);
       })
       .catch((err) => {
         console.log("MOVIE ERROR ", err);
@@ -66,7 +66,7 @@ const MovieApi = (props) => {
   });
 
   return (
-    <div className="movieApi">
+    <div className="movieApi generalApiContainer">
       <Display
         image={movieData.poster_path}
         overview={movieData.overview}

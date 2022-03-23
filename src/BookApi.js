@@ -39,7 +39,7 @@ const BookApi = (props) => {
   // }
 
   return (
-    <div className="bookApi">
+    <div className="bookApi generalApiContainer">
       <Display
         image={bookImage}
         overview={bookData.description}

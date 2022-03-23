@@ -32,8 +32,10 @@ const Results = (props) => {
           getTitle2={getTitle}
           getBookRating2={getBookRating}
         />
-        <Versus />
-        <Rating bRating={bookRating} mRating={movieRating} />
+        <div className="versusRatingContainer">
+          <Versus />
+          <Rating bRating={bookRating} mRating={movieRating} />
+        </div>
         <MovieApi
           formSearch2={props.formSearch}
           getMovieRating2={getMovieRating}
