@@ -48,3 +48,15 @@ imageContainer {
 img {
   width: 100%;
 }
+
+/* BACKGROUND VIDEOS TEST */
+
+.backgroundVideos {
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+}
+#video {
+  width: 100%;
+}
