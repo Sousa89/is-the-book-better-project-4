@@ -1,6 +1,7 @@
 import "./App.css";
 import Form from "./Form";
 import Results from "./Results";
+import Footer from "./Footer";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import BackgroundVideo from "./BackgroundVideo";
@@ -9,13 +10,15 @@ function App() {
   const [searchParams, setSearchParams] = useState(null);
 
   const getSearchParams = (e, filter) => {
-    // console.log("submit");
     e.preventDefault();
     setSearchParams(filter);
-    // console.log('App.js', searchParams);
   };
+  
   return (
+
     <div className="App">
+
+   
       <Routes>
         <Route path="/" element={<Form handleSubmit={getSearchParams} />} />
         <Route
@@ -23,7 +26,9 @@ function App() {
           element={<Results formSearch={searchParams} />}
         />
       </Routes>
-      <BackgroundVideo />
+
+      <Footer/>
+
       {/* display */}
     </div>
   );

@@ -29,14 +29,15 @@ const MovieApi = (props) => {
       params: {
         api_key: "80b3efd6913b7c0573391241f786ea80",
 
-        query: props.formSearch2,
-        // query: `fight club`,
+        // query: props.formSearch2,
+        query: `fight club`,
       },
     })
       .then((apiData) => {
         // console.log(apiData.data.results[0]);
         setMovieData(apiData.data.results[0]);
         // console.log(apiData);
+        props.getMovieRating2(movieData.vote_average)
       })
       .catch((err) => {
         console.log("MOVIE ERROR ", err);
@@ -65,10 +66,9 @@ const MovieApi = (props) => {
   });
 
   return (
-    <div>
+    <div className="movieApi">
       <Display
         image={movieData.poster_path}
-        voteAvg={movieData.vote_average}
         overview={movieData.overview}
         title={movieData.title}
         releaseDate={movieData.release_date}
