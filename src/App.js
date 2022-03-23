@@ -4,6 +4,7 @@ import Results from "./Results";
 import Footer from "./Footer";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import BackgroundVideo from "./BackgroundVideo";
 
 function App() {
   const [searchParams, setSearchParams] = useState(null);
@@ -25,8 +26,9 @@ function App() {
           element={<Results formSearch={searchParams} />}
         />
       </Routes>
+
       <Footer/>
-   
+
       {/* display */}
     </div>
   );

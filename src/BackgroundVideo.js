@@ -1,17 +1,14 @@
 // BackgroundVideo.js
 
-// const BackgroundVideo = ()=>{
+import backgroundVideo1 from "./videoFiles/library.mp4";
 
-
-
-//   return(
-//     <div>
-// <video autoplay muted loop id="myVideo">
-//   <source src="https://pixabay.com/videos/id-846/" type="video/mp4"/>
-// </video>
-
-//     </div>
-//   )
-// }
-
-// export default BackgroundVideo
+const BackgroundVideo = (props) => {
+  return (
+    <div className="backgroundVideos">
+      <video autoPlay loop muted id="video">
+        <source src={backgroundVideo1} type="video/mp4" />
+      </video>
+    </div>
+  );
+};
+export default BackgroundVideo;
