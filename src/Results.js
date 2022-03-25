@@ -24,7 +24,8 @@ const Results = (props) => {
     setMovieRating(getRating);
   };
   return (
-    <div className="results">
+    bookRating ? 
+    < div className = "results" >
       <Title title={title} />
       <div className="wrapper">
         <BookApi
@@ -40,7 +41,9 @@ const Results = (props) => {
         />
       </div>
       <BackButton />
-    </div>
+    </div >
+    :
+
   );
 };
 

@@ -14,8 +14,8 @@ const BookApi = (props) => {
     axios({
       url: `https://www.googleapis.com/books/v1/volumes`,
       params: {
-        // q: props.formSearch2,
-        q: "fight club",
+        q: props.formSearch2,
+        // q: "fight club",
         key: "AIzaSyC7nVvFwC8qpnCDnddeOCwnTXZLdwJKQuk",
         maxResults: "40",
       },

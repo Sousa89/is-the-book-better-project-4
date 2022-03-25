@@ -22,9 +22,18 @@ const Display = (props) => {
           <h4>{props.author ? "Author" : "Director"}</h4>
           <p>{props.author ? props.author : props.director}</p>
           <h4>{props.releaseDate}</h4>
-          <p>{props.stars1}</p>
+          {
+            props.stars
+            ? props.stars.map( (star) => {
+                return(
+                  <p>Testing {star}</p>
+                )
+            })
+            : null
+          }
+          {/* <p>{props.stars1}</p>
           <p>{props.stars2}</p>
-          <p>{props.stars3}</p>
+          <p>{props.stars3}</p> */}
           <p>{props.overview}</p>
         </div>
         {/* end of textContainer */}

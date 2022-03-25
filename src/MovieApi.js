@@ -33,8 +33,8 @@ const MovieApi = (props) => {
       params: {
         api_key: "80b3efd6913b7c0573391241f786ea80",
 
-        // query: props.formSearch2,
-        query: `fight club`,
+        query: props.formSearch2,
+        // query: `fight club`,
       },
     })
       .then((apiData) => {
@@ -48,19 +48,26 @@ const MovieApi = (props) => {
         axios({
           url: `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=80b3efd6913b7c0573391241f786ea80&language=en-US`,
         }).then((castData) => {
-          // console.log(`beep boop`, castData.data.cast[0]);
-          setCastData1(castData.data.cast[0].name);
-          setCastData2(castData.data.cast[1].name);
-          setCastData3(castData.data.cast[2].name);
-
-          setDirectorData(castData.data.crew);
-
+          setMovieData({ ...movieData, director: directorName(castData.data.crew), stars: [castData.data.cast[0].name, castData.data.cast[1].name, castData.data.cast[2].name]})
         });
       })
       .catch((err) => {
         console.log("MOVIE ERROR ", err);
       });
   }, [props]);
+
+  const directorName = (crew) => {
+    let director = []
+    crew.map((eachProperty) => {
+      if (eachProperty.job === "Director") {
+        director.push(eachProperty.name)
+        return
+      }
+    })
+    return director[0]
+  }
+
+  console.log("DIRECTOR NAME", movieData);
 
   // useEffect(() => {
   //   axios({
@@ -83,19 +90,19 @@ const MovieApi = (props) => {
   // const {director: director} = test
   // console.log(director);
 
-  const directorName = directorData.map((director) => {
-    if (director.job === "Director") {
-      // console.log(`IT WORKED GOD DAMMIT`, director);
-      return director.name;
-    }
-  });
+  // const directorName = directorData.map((director) => {
+  //   if (director.job === "Director") {
+  //     // console.log(`IT WORKED GOD DAMMIT`, director);
+  //     return director.name;
+  //   }
+  // });
 
   // const getNames = (names) => {
   //   setCast(names)
   // }
 
-  Cast(movieData.id)
-console.log(cast);
+//   Cast(movieData.id)
+// console.log(cast);
 
   return (
     <div className="movieApi">
@@ -106,9 +113,10 @@ console.log(cast);
         title={movieData.title}
         releaseDate={movieData.release_date}
         director={directorName}
-        stars1={castData1}
-        stars2={castData2}
-        stars3={castData3}
+        // stars1={castData1}
+        // stars2={castData2}
+        // stars3={castData3}
+        stars={movieData.stars}
       />
     </div>
   );
