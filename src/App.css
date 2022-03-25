@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&family=Maitree&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400;600&family=Maitree&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;400;600&family=Montserrat&display=swap");
 
 html {
   line-height: 1.15;
@@ -223,7 +223,7 @@ template {
 * {
   margin: 0;
   padding: 0;
-  line-height: 1.4rem;
+  line-height: 1.1rem;
 }
 html {
   font-size: 125%;
@@ -238,85 +238,308 @@ h3,
 h4 {
   font-family: "maitree";
   margin: 0;
+  font-weight: 600;
+}
+h4 {
+  margin-bottom: 2px;
+  margin-top: 12px;
 }
 p {
   font-family: "montserrat";
+  font-size: 0.9rem;
+}
+
+.header p {
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  width: 70%;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 4rem;
+}
+a {
+  text-decoration: none;
+  color: #ace8cd;
+}
+
+.header span {
+  color: #ace8cd;
+}
+.App h1 {
+  margin: 0;
+  height: 74px;
+}
+
+.App {
+  /* background-color: #5da9c29d; */
+  background-color: #271870c0;
+  color: white;
 }
 
 /* Forms.js */
 .formComp {
-  background-color: cyan;
-  height: 100vh;
+  /* background-color: #5da9c29d; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 97vh;
 }
 
 .formComp form {
   display: flex;
   flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+}
+
+.formComp input {
+  position: relative;
+  border-radius: 30px;
+  width: 425px;
+  height: 43px;
+  padding-left: 25px;
+  border: none;
+  background-color: #00000078;
+  color: white;
 }
 
 .formComp button {
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 3px 5px rgba(100, 100, 100, 0.8);
+  border-radius: 30px;
   align-items: center;
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  box-shadow: none;
+  width: 112px;
+  height: 34px;
+  background: skyblue;
+}
+
+.formComp button:hover {
+  border: none;
+  border-radius: 10px;
+  background-color: #ace8cd;
 }
 
 /* Header.js */
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+}
 
 /* Resutls.js */
 .results .wrapper {
   display: flex;
   max-width: 1400px;
+  flex-direction: column;
 }
 
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+  padding-left: 30px;
+}
 /* Title.js */
 .title {
   text-align: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+}
+
+.title h1 {
+  margin-top: 60px;
 }
 
 /* BookApi.js */
-.bookApi {
-  width: 40%;
+.generalApiContainer {
+  width: 41%;
+  /* background-color: #0000009c; */
+  border-radius: 11px;
+  display: flex;
+  width: 100%;
 }
 
-/* Movie.js */
-.movieApi {
-  width: 40%;
+.generalApiContainer .textContainer {
+  /* background-color: #7fffd4c9; */
+  background-color: #0000009c;
+  border-left: 4px solid #ace8cd;
+  border-radius: 10px;
+  padding: 4%;
+  width: 50%;
+}
+.generalApiContainer .imageContainer {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.generalApiContainer img {
+  /* padding: 20px; */
+  /* border-radius: 10px; */
+  width: 360px;
+  max-height: 536px;
+  border: 6px solid rgb(0, 0, 0);
+  box-shadow: 7px 7px 20px #131313, -7px -7px 20px #000;
 }
 
-/* Display.js */
-/* .imageContainer {
+/* .bookApi {
+  flex-direction: row;
 } */
+/* This targets the book overview */
+.bookApi p:nth-child(8) {
+  margin-top: 30px;
+}
+/* This targets the movie overview */
+.movieApi p:nth-child(9) {
+  margin-top: 30px;
+}
+.movieApi {
+  flex-direction: row-reverse;
+}
+.bookApi .display {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.movieApi .display {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
 
-/* Rating.js */
+/* -----VERSUS/RATING CONTAINER---- */
+.versusRatingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 117px;
+  animation: bounce 0.4s linear;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.winner {
+  display: none;
+}
+
 .rating {
-  width: 20%;
+  /* width: 100%; */
+  background-color: #0000009e;
 }
 
-/* BackButton.js */
-.back {
-  text-align: center;
+.ratingTextContainer {
+  margin: 10%;
+  /* background-color: #7fffd4c2; */
+  display: none;
 }
 
-/* versus.js */
 .versus {
-  margin: 0;
-  padding: 0;
-  font-size: 5em;
+  text-align: center;
+  font-size: 4rem;
 }
+
+.back button {
+  text-align: center;
+  border: none;
+  border-radius: 30px;
+  align-items: center;
+  box-shadow: none;
+  width: 300px;
+  height: 48px;
+  background: skyblue;
+  box-shadow: 3px 3px 3px;
+}
+.back {
+  margin-top: 30px;
+}
+/* versus.js */
 
 /* Background video */
 
-.backgroundVideos {
+/* .backgroundVideos {
   width: 100%;
   position: fixed;
   z-index: -1;
   top: 0;
+} */
+video {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }
-#video {
-  width: 100%;
+
+/* FOOTER COMPONENT */
+
+footer {
+  background: #0000008f;
+  font-size: 0.7rem;
+  text-align: center;
 }
+/* ----- FROM DEVELOPER TOOLS -----*/
+
+/* -----FOR ARROW ANIMATION TO BE WORKED ON--- */
+/* <div class="arrow"></div> */
+
+/* CSS FOR ARROW ANIMATION */
+/* 
+.arrow,
+.arrow:before
+  position: absolute
+  left: 50%
+
+.arrow
+  width: 40px
+  height: 40px
+  top: 50%
+  margin: -20px 0 0 -20px
+  -webkit-transform: rotate(45deg)
+  border-left: none
+  border-top: none
+  border-right: 2px #fff solid
+  border-bottom: 2px #fff solid
+
+  
+.arrow:before
+  content: ''
+  width: 20px
+  height: 20px
+  top: 50%
+  margin: -10px 0 0 -10px
+  border-left: none
+  border-top: none
+  border-right: 1px #fff solid
+  border-bottom: 1px #fff solid
+  animation-duration: 2s
+  animation-iteration-count: infinite
+  animation-name: arrow
+  
+@keyframes arrow
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+    transform: translate(-10px, -10px) */

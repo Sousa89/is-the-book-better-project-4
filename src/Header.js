@@ -1,12 +1,18 @@
 // Header.js
 
 const Header = () => {
-    return (
-        <div className="header">
-            <h1>Is the book better?</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quam architecto possimus corporis corrupti deserunt, nobis iste porro culpa maiores quidem nisi illum illo distinctio esse tenetur quibusdam modi nostrum.</p>
-        </div>
-    )
-}
+  return (
+    <div className="header">
+      <h1>
+        Is the <span>book</span> better?
+      </h1>
+      <p>
+        <span>Books</span> are better! No, <span>Movies</span> are better! Lets
+        settle the debate! Write in your <span>favorite book</span> and see
+        which one is better, once and for all!
+      </p>
+    </div>
+  );
+};
 
-export default Header
+export default Header;

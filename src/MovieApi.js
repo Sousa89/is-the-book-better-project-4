@@ -33,12 +33,14 @@ const MovieApi = (props) => {
       params: {
         api_key: "80b3efd6913b7c0573391241f786ea80",
 
+
+        // query: 'fight club'
         query: props.formSearch2,
-        // query: `fight club`,
+        // query: `dsfdaasdasdasdasdas`,
       },
     })
       .then((apiData) => {
-        // console.log(apiData.data.results[0]);
+        console.log("movie data is : ",apiData.data.results[0]);
         setMovieData(apiData.data.results[0]);
         // console.log(apiData);
         props.getMovieRating2(movieData.vote_average)
@@ -51,9 +53,25 @@ const MovieApi = (props) => {
           setMovieData({ ...movieData, director: directorName(castData.data.crew), stars: [castData.data.cast[0].name, castData.data.cast[1].name, castData.data.cast[2].name]})
         });
       })
-      .catch((err) => {
-        console.log("MOVIE ERROR ", err);
-      });
+      // .catch((err) => {
+      //   console.log("MOVIE ERROR ", err);
+      // });
+      .catch(function (error) {
+        props.getErrorsStatus(true);
+        if (error.apiData) {
+          // Request made and server responded
+          console.log(error.apiData.data);
+          console.log(error.apiData.status);
+          console.log(error.apiData.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+
+  });
   }, [props]);
 
   const directorName = (crew) => {
@@ -105,19 +123,21 @@ const MovieApi = (props) => {
 // console.log(cast);
 
   return (
-    <div className="movieApi">
-      {/* <Cast movieId={movieData.Id} getNames2={getNames}/> */}
-      <Display
+    <div className="movieApi generalApiContainer">
+      {
+        movieData ? <Display
         image={movieData.poster_path}
         overview={movieData.overview}
         title={movieData.title}
         releaseDate={movieData.release_date}
         director={directorName}
-        // stars1={castData1}
-        // stars2={castData2}
-        // stars3={castData3}
+        stars1={castData1}
+        stars2={castData2}
+        stars3={castData3}
         stars={movieData.stars}
-      />
+      /> : null
+      }
+      
     </div>
   );
 };

@@ -9,9 +9,13 @@ import Versus from "./Versus";
 // import { useParams } from "react-router-dom";
 
 const Results = (props) => {
-  const [title, setTitle] = useState(null);
+  const [title, setTitle] = useState('');
   const [bookRating, setBookRating] = useState(null);
   const [movieRating, setMovieRating] = useState(null);
+  const [bookError, setBookError] = useState(false);
+  const [movieError, setMovieError] = useState(false);
+
+  
   const getTitle = (headlineTitle) => {
     setTitle(headlineTitle);
     // console.log("title ", title);
@@ -19,31 +23,61 @@ const Results = (props) => {
   // console.log("Results.js", props.formSearch);
   const getBookRating = (getRating) => {
     setBookRating(getRating);
+    
   };
   const getMovieRating = (getRating) => {
     setMovieRating(getRating);
   };
-  return (
-    bookRating ? 
-    < div className = "results" >
-      <Title title={title} />
-      <div className="wrapper">
-        <BookApi
-          formSearch2={props.formSearch}
-          getTitle2={getTitle}
-          getBookRating2={getBookRating}
-        />
-        <Versus />
-        <Rating bRating={bookRating} mRating={movieRating} />
-        <MovieApi
-          formSearch2={props.formSearch}
-          getMovieRating2={getMovieRating}
-        />
-      </div>
-      <BackButton />
-    </div >
-    :
+  const errorBookHandler = (err) => {
+    setBookError(err);
+  };
+  const errorMovieHandler = (err) => {
+    setMovieError(err);
+  }
 
+  console.log("Book Error is : ", bookError);
+  console.log("Movie Error is : ", movieError);
+  return (
+      bookError  
+      ? <div>
+          <p>There is no book/movie with this title.Please try again! </p>
+          <BackButton />
+        </div>
+      : <div className="results">
+        <Title title={title} />
+        <div className="wrapper">
+          <BookApi
+            formSearch2={props.formSearch}
+            getTitle2={getTitle}
+            getBookRating2={getBookRating}
+            getErrorsStatus={errorBookHandler}
+          />
+          <div className="versusRatingContainer">
+            <Versus />
+            <Rating bRating={bookRating} mRating={movieRating} />
+          </div>
+          
+          {
+            title
+            ? (!movieError
+                ? <MovieApi
+                  formSearch2={title}
+                  getMovieRating2={getMovieRating}
+                  getErrorsStatus={errorMovieHandler}
+                />
+                : <div>
+                  <p>There is no book/movie with this title.Please try again! </p>
+                  <BackButton />
+                </div>
+            )
+            : null
+          }
+        </div>
+      
+    </div> 
+    
+      
+    
   );
 };
 

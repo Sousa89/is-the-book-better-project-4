@@ -5,18 +5,18 @@ const Display = (props) => {
 
   return (
     // <div className="wrapper"></div>
-      <div className="display">
-        <div className="imageContainer">
-          {props.author ? (
-            <img src={`${props.image}`} alt={`cover for ${props.title}`} />
-          ) : (
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${props.image}`}
-              alt={`movie poster for ${props.title}`}
-            />
-          )}
-        </div>
-        {/* end of  imageContainer div */}
+    <div className="display">
+      <div className="imageContainer">
+        {props.author ? (
+          <img src={`${props.image}`} alt={`cover for ${props.title}`} />
+        ) : (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${props.image}`}
+            alt={`movie poster for ${props.title}`}
+          />
+        )}
+      </div>
+      {/* end of  imageContainer div */}
 
         <div className="textContainer">
           <h4>{props.author ? "Author" : "Director"}</h4>
@@ -37,8 +37,8 @@ const Display = (props) => {
           <p>{props.overview}</p>
         </div>
         {/* end of textContainer */}
-      </div>
-      // end of displayContainer div
+    </div>
+    // end of displayContainer div
   );
 };
 export default Display;
