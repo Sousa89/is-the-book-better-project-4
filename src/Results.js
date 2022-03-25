@@ -12,6 +12,8 @@ const Results = (props) => {
   const [title, setTitle] = useState(null);
   const [bookRating, setBookRating] = useState(null);
   const [movieRating, setMovieRating] = useState(null);
+  const [error, setError] = useState(false);
+  
   const getTitle = (headlineTitle) => {
     setTitle(headlineTitle);
     // console.log("title ", title);
@@ -19,18 +21,26 @@ const Results = (props) => {
   // console.log("Results.js", props.formSearch);
   const getBookRating = (getRating) => {
     setBookRating(getRating);
+    
   };
   const getMovieRating = (getRating) => {
     setMovieRating(getRating);
   };
+  const errorHandler = (err) => {
+    setError(err);
+  };
+
+  console.log("Error is : ", error);
   return (
-    <div className="results">
+      error ? <div><p>There is no book/movie with this title.Please try again! </p><BackButton /></div> : 
+     <div className="results">
       <Title title={title} />
       <div className="wrapper">
         <BookApi
           formSearch2={props.formSearch}
           getTitle2={getTitle}
           getBookRating2={getBookRating}
+          getErrorsStatus={errorHandler}
         />
         <div className="versusRatingContainer">
           <Versus />
@@ -39,10 +49,14 @@ const Results = (props) => {
         <MovieApi
           formSearch2={props.formSearch}
           getMovieRating2={getMovieRating}
+          getErrorsStatus={errorHandler}
         />
       </div>
-      <BackButton />
-    </div>
+      
+    </div> 
+    
+      
+    
   );
 };
 

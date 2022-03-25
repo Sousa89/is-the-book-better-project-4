@@ -28,34 +28,50 @@ const MovieApi = (props) => {
 
       params: {
         api_key: "80b3efd6913b7c0573391241f786ea80",
-
-        // query: props.formSearch2,
-        query: `fight club`,
+        // query: 'fight club'
+        query: props.formSearch2,
+        // query: `dsfdaasdasdasdasdas`,
       },
     })
       .then((apiData) => {
-        // console.log(apiData.data.results[0]);
+        console.log("movie data is : ",apiData.data.results[0]);
         setMovieData(apiData.data.results[0]);
         // console.log(apiData);
         props.getMovieRating2(movieData.vote_average);
       })
-      .catch((err) => {
-        console.log("MOVIE ERROR ", err);
-      });
+      // .catch((err) => {
+      //   console.log("MOVIE ERROR ", err);
+      // });
+      .catch(function (error) {
+        props.getErrorsStatus(true);
+        if (error.apiData) {
+          // Request made and server responded
+          console.log(error.apiData.data);
+          console.log(error.apiData.status);
+          console.log(error.apiData.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+
+  });
   }, [props]);
 
-  useEffect(() => {
-    axios({
-      url: `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=80b3efd6913b7c0573391241f786ea80&language=en-US`,
-    }).then((castData) => {
-      // console.log(`beep boop`, castData.data.cast[0]);
-      setCastData1(castData.data.cast[0].name);
-      setCastData2(castData.data.cast[1].name);
-      setCastData3(castData.data.cast[2].name);
+  // useEffect(() => {
+  //   axios({
+  //     url: `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=80b3efd6913b7c0573391241f786ea80&language=en-US`,
+  //   }).then((castData) => {
+  //     // console.log(`beep boop`, castData.data.cast[0]);
+  //     setCastData1(castData.data.cast[0].name);
+  //     setCastData2(castData.data.cast[1].name);
+  //     setCastData3(castData.data.cast[2].name);
 
-      setDirectorData(castData.data.crew);
-    });
-  }, [movieData]);
+  //     setDirectorData(castData.data.crew);
+  //   });
+  // }, [movieData]);
   // console.log(`checking cast data`, castData1, castData2, castData3);
 
   const directorName = directorData.map((director) => {
@@ -67,7 +83,8 @@ const MovieApi = (props) => {
 
   return (
     <div className="movieApi generalApiContainer">
-      <Display
+      {
+        movieData ? <Display
         image={movieData.poster_path}
         overview={movieData.overview}
         title={movieData.title}
@@ -76,7 +93,9 @@ const MovieApi = (props) => {
         stars1={castData1}
         stars2={castData2}
         stars3={castData3}
-      />
+      /> : null
+      }
+      
     </div>
   );
 };

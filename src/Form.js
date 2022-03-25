@@ -29,6 +29,7 @@ const Form = (props) => {
           onChange={handleChange}
           value={form}
         ></input>
+        
         <Link to="/results">
           <button>Submit</button>
         </Link>
