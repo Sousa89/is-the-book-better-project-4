@@ -223,7 +223,7 @@ template {
 * {
   margin: 0;
   padding: 0;
-  line-height: 1.4rem;
+  line-height: 1.1rem;
 }
 html {
   font-size: 125%;
@@ -242,19 +242,34 @@ h4 {
 }
 p {
   font-family: "montserrat";
-  width: 73%;
+  font-size: 0.8rem;
+}
+
+.header p {
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  width: 70%;
+  text-align: center;
 }
 
 h1 {
   text-align: center;
   margin: 30px 0;
+  font-size: 5rem;
 }
-/* h4 {
-  font-weight: bold;
-} */
+
+.header span {
+  color: #ace8cd;
+}
+.App h1 {
+  margin: 0;
+  height: 74px;
+}
+
 .App {
   /* background-color: #5da9c29d; */
   background-color: #271870c0;
+  color: white;
 }
 
 /* Forms.js */
@@ -293,9 +308,9 @@ h1 {
   right: 6px;
   top: 5px;
   box-shadow: none;
-  background: lightblue;
   width: 112px;
   height: 34px;
+  background: skyblue;
 }
 
 .formComp button:hover {
@@ -310,49 +325,94 @@ h1 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 300px;
 }
 
 /* Resutls.js */
 .results .wrapper {
   display: flex;
   max-width: 1400px;
+  flex-direction: column;
 }
 
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+  padding-left: 30px;
+}
 /* Title.js */
 .title {
   text-align: center;
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* BookApi.js */
 .generalApiContainer {
   width: 41%;
-  background-color: #0000009c;
+  /* background-color: #0000009c; */
   border-radius: 11px;
-  margin: 0 3%;
+  display: flex;
+  width: 100%;
 }
 
 .generalApiContainer .textContainer {
-  background-color: #7fffd4c9;
-  margin: 6%;
-  border-radius: 19px;
-  padding: 9%;
+  /* background-color: #7fffd4c9; */
+  background-color: #0000009c;
+  border-left: 4px solid #ace8cd;
+  border-radius: 10px;
+  padding: 4%;
+  width: 50%;
 }
-
+.generalApiContainer .imageContainer {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
 .generalApiContainer img {
-  padding: 20px;
-  border-radius: 30px;
+  /* padding: 20px; */
+  border-radius: 10px;
+  width: 360px;
+  max-height: 536px;
 }
 
 .generalApiContainer > div:nth-child(1) > div:nth-child(2) > p:nth-child(7) {
   width: 100%;
   margin-top: 31px;
 }
+/* .bookApi {
+  flex-direction: row;
+}
+.movieApi {
+  flex-direction: row-reverse;
+} */
+
+.bookApi .display {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.movieApi .display {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
 /* -----VERSUS/RATING CONTAINER---- */
 .versusRatingContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 117px;
+  animation: bounce 0.4s linear;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
 }
 
 .winner {
@@ -360,19 +420,19 @@ h1 {
 }
 
 .rating {
-  width: 100%;
+  /* width: 100%; */
   background-color: #0000009e;
 }
 
-.ratingTextcontainer {
+.ratingTextContainer {
   margin: 10%;
-  background-color: #7fffd4c2;
+  /* background-color: #7fffd4c2; */
+  display: none;
 }
 
 .versus {
-  margin: 200px 0;
-  width: 100%;
   text-align: center;
+  font-size: 4rem;
 }
 
 .back {
