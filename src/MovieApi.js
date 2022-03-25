@@ -29,8 +29,8 @@ const MovieApi = (props) => {
       params: {
         api_key: "80b3efd6913b7c0573391241f786ea80",
 
-        // query: props.formSearch2,
-        query: `fight club`,
+        query: props.formSearch2,
+        // query: `fight club`,
       },
     })
       .then((apiData) => {
