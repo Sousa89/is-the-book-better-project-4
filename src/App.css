@@ -240,9 +240,13 @@ h4 {
   margin: 0;
   font-weight: 600;
 }
+h4 {
+  margin-bottom: 2px;
+  margin-top: 12px;
+}
 p {
   font-family: "montserrat";
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .header p {
@@ -255,7 +259,11 @@ p {
 h1 {
   text-align: center;
   margin: 30px 0;
-  font-size: 5rem;
+  font-size: 4rem;
+}
+a {
+  text-decoration: none;
+  color: #ace8cd;
 }
 
 .header span {
@@ -275,11 +283,11 @@ h1 {
 /* Forms.js */
 .formComp {
   /* background-color: #5da9c29d; */
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 97vh;
 }
 
 .formComp form {
@@ -346,10 +354,15 @@ h1 {
 /* Title.js */
 .title {
   text-align: center;
-  height: 95px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 160px;
+}
+
+.title h1 {
+  margin-top: 60px;
 }
 
 /* BookApi.js */
@@ -376,22 +389,27 @@ h1 {
 }
 .generalApiContainer img {
   /* padding: 20px; */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   width: 360px;
   max-height: 536px;
+  border: 6px solid rgb(0, 0, 0);
+  box-shadow: 7px 7px 20px #131313, -7px -7px 20px #000;
 }
 
-.generalApiContainer > div:nth-child(1) > div:nth-child(2) > p:nth-child(7) {
-  width: 100%;
-  margin-top: 31px;
-}
 /* .bookApi {
   flex-direction: row;
+} */
+/* This targets the book overview */
+.bookApi p:nth-child(8) {
+  margin-top: 30px;
+}
+/* This targets the movie overview */
+.movieApi p:nth-child(9) {
+  margin-top: 30px;
 }
 .movieApi {
   flex-direction: row-reverse;
-} */
-
+}
 .bookApi .display {
   display: flex;
   flex-direction: row;
@@ -435,20 +453,93 @@ h1 {
   font-size: 4rem;
 }
 
-.back {
+.back button {
   text-align: center;
+  border: none;
+  border-radius: 30px;
+  align-items: center;
+  box-shadow: none;
+  width: 300px;
+  height: 48px;
+  background: skyblue;
+  box-shadow: 3px 3px 3px;
 }
-
+.back {
+  margin-top: 30px;
+}
 /* versus.js */
 
 /* Background video */
 
-.backgroundVideos {
+/* .backgroundVideos {
   width: 100%;
   position: fixed;
   z-index: -1;
   top: 0;
+} */
+video {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }
-#video {
-  width: 100%;
+
+/* FOOTER COMPONENT */
+
+footer {
+  background: #0000008f;
+  font-size: 0.7rem;
+  text-align: center;
 }
+/* ----- FROM DEVELOPER TOOLS -----*/
+
+/* -----FOR ARROW ANIMATION TO BE WORKED ON--- */
+/* <div class="arrow"></div> */
+
+/* CSS FOR ARROW ANIMATION */
+/* 
+.arrow,
+.arrow:before
+  position: absolute
+  left: 50%
+
+.arrow
+  width: 40px
+  height: 40px
+  top: 50%
+  margin: -20px 0 0 -20px
+  -webkit-transform: rotate(45deg)
+  border-left: none
+  border-top: none
+  border-right: 2px #fff solid
+  border-bottom: 2px #fff solid
+
+  
+.arrow:before
+  content: ''
+  width: 20px
+  height: 20px
+  top: 50%
+  margin: -10px 0 0 -10px
+  border-left: none
+  border-top: none
+  border-right: 1px #fff solid
+  border-bottom: 1px #fff solid
+  animation-duration: 2s
+  animation-iteration-count: infinite
+  animation-name: arrow
+  
+@keyframes arrow
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+    transform: translate(-10px, -10px) */

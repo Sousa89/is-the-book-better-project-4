@@ -23,6 +23,7 @@ const Display = (props) => {
         <p>{props.author ? props.author : props.director}</p>
         <h4>{props.author ? "Publish Date" : "Release Date"} </h4>
         <p>{props.releaseDate}</p>
+        <h4>{props.author ? null : "Cast"} </h4>
         <p>{props.stars1}</p>
         <p>{props.stars2}</p>
         <p>{props.stars3}</p>
