@@ -96,11 +96,16 @@ const BookApi = (props) => {
       {/* {initalCheck()} */}
       {
         Object.keys(bookData).length === 0
-          ? bookTitles.map((eachTitle, index) => {
-            return (
-              <button onClick={() => handleClick(index)}>{eachTitle}</button>
-            )
-          })
+          ? <div> 
+            <p>Here are the top results returned from your search</p>
+            {
+              bookTitles.map((eachTitle, index) => {
+                return (
+                  <button onClick={() => handleClick(index)}>{eachTitle}</button>
+                )
+              })
+            }
+          </div>
           : <Display
             image={bookImage}
             overview={bookData.description}
