@@ -259,7 +259,7 @@ p {
 h1 {
   text-align: center;
   margin: 30px 0;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 a {
   text-decoration: none;
@@ -341,6 +341,7 @@ a {
   display: flex;
   max-width: 1400px;
   flex-direction: column;
+  /* margin-top: -85px; */
 }
 
 .results {
@@ -350,6 +351,7 @@ a {
   align-items: center;
   padding-right: 30px;
   padding-left: 30px;
+  margin-top: 0;
 }
 /* Title.js */
 .title {
@@ -359,6 +361,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 160px;
+  font-size: 3rem;
 }
 
 .title h1 {
@@ -414,7 +417,9 @@ a {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-bottom: 40px;
 }
+
 .movieApi .display {
   display: flex;
   flex-direction: row-reverse;
@@ -427,31 +432,57 @@ a {
   flex-direction: column;
   align-items: center;
   height: 117px;
-  animation: bounce 0.4s linear;
-  display: flex;
+  /* animation: bounce 0.4s linear; */
   justify-content: center;
-  margin: 40px 0;
+  margin: 55px 0;
+  
 }
 
 .winner {
   display: none;
 }
 
-.rating {
-  /* width: 100%; */
-  background-color: #0000009e;
-}
 
 .ratingTextContainer {
-  margin: 10%;
+  margin: 5% 2%;
   /* background-color: #7fffd4c2; */
-  display: none;
+  /* display: none; */
+  display: flex;
+  flex-direction: row;
+}
+.ratingWrapper {
+  display: flex;
+  margin-left: 10px;
+  
+}
+.ratingWrapper p:nth-child(2)  {
+  margin-left: 10px;
 }
 
 .versus {
   text-align: center;
   font-size: 4rem;
 }
+
+.rating {
+  /* width: 100%; */
+  background-color: #0000009e;
+  width: 485px;
+  height: 75px;
+  margin-top: 40px;
+  animation: leftToRight 3s ease-in-out;
+}
+@keyframes leftToRight {
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 400px;
+  }
+}
+
+
+
 
 .back button {
   text-align: center;
@@ -466,6 +497,7 @@ a {
 }
 .back {
   margin-top: 30px;
+  text-align: center;
 }
 /* versus.js */
 
@@ -491,6 +523,52 @@ video {
   bottom: 0;
   z-index: -1;
 }
+.titleList{
+  margin-top: 30px;
+  font-family: "Montserat", sans-serif;
+  
+}
+.titleDecoration {
+  background-color: #0000009c;
+  border-left: 4px solid #ace8cd;
+  border-radius: 10px;
+  padding: 4%;
+  width: 95%;
+  margin-top: 25px;
+  text-decoration: underline #5da9c2;
+}
+.titleItems{
+  list-style: none;
+}
+.titleList:hover{
+  color: #3fc589;
+  cursor: pointer;
+  font-family: "Montserat", sans-serif;
+}
+.subHeader {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: "Maitree", sans-serif;
+}
+.itemMessage {
+  background-color: #0000009e;
+  display: flex;
+  justify-content: center;
+  width: 680px;
+  height: 35px;
+  margin: 0 auto;
+}
+.itemMessage span {
+  color: red;
+}
+.errorMessage {
+  color: white;
+  padding: 5px;
+  font-size: 1.5rem;
+  
+}
+
+
 
 /* FOOTER COMPONENT */
 
