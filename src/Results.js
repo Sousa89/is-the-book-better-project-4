@@ -52,22 +52,28 @@ console.log("TITLEEEEEEE", title);
             getBookRating2={getBookRating}
             getErrorsStatus={errorBookHandler}
           />
-          <div className="versusRatingContainer">
+          {/* <div className="versusRatingContainer">
             <Versus />
             <Rating bRating={bookRating} mRating={movieRating} />
-          </div>
+          </div> */}
           
           {
             title
             ? (!movieError
-                ? <MovieApi
-                  formSearch2={title}
-                  getMovieRating2={getMovieRating}
-                  getErrorsStatus={errorMovieHandler}
-                />
+                ? <div> 
+                  <div className="versusRatingContainer">
+                    <Versus />
+                    <Rating bRating={bookRating} mRating={movieRating} />
+                  </div>
+                  <MovieApi
+                    formSearch2={title}
+                    getMovieRating2={getMovieRating}
+                    getErrorsStatus={errorMovieHandler}
+                  />
+                </div>
                 : <div>
                   <p>There is no book/movie with this title.Please try again! </p>
-                  <BackButton />
+                  {/* <BackButton /> */}
                 </div>
             )
             : null
