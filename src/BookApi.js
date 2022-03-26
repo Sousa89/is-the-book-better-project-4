@@ -106,26 +106,34 @@ const BookApi = (props) => {
     <div className="bookApi generalApiContainer">
       {/* {initalCheck()} */}
       {
-        bookTitles[0]
-          ? Object.keys(bookData).length === 0
-            ? <div>
-              <p>Here are the top results returned from your search</p>
-              {
-                bookTitles.map((eachTitle, index) => {
-                  return (
-                    <button onClick={() => handleClick(index)}>{eachTitle}</button>
-                  )
-                })
-              }
-            </div>
-            : <Display
-              image={bookImage}
-              overview={bookData.description}
-              title={bookData.title}
-              releaseDate={bookData.publishedDate}
-              author={bookData.authors}
-            />
-          : <Loading />
+        Object.keys(bookData).length === 0
+          ? 
+          <div>
+            <p className="subHeader">Here are the top book results returned from your search:</p>
+           <div className="titleDecoration"> 
+            {
+              bookTitles.map((eachTitle, index) => {
+                return (
+                  // <button onClick={() => handleClick(index)}>{eachTitle}</button>
+                  <ul className="titleList">
+                    <li className="titleItems"onClick={() => handleClick(index)}>{eachTitle}
+
+                    </li>
+                  </ul>
+
+                )
+              })
+            }
+          </div>
+          </div>
+          
+          : <Display
+            image={bookImage}
+            overview={bookData.description}
+            title={bookData.title}
+            releaseDate={bookData.publishedDate}
+            author={bookData.authors}
+          />
       }
     </div>
   );
