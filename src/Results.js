@@ -39,8 +39,8 @@ console.log("TITLEEEEEEE", title);
   console.log("Movie Error is : ", movieError);
   return (
       bookError  
-      ? <div>
-          <p>There is no book/movie with this title.Please try again! </p>
+      ? <div className="itemMessage">
+        <p className="errorMessage">Book title not available so the <span>movie wins!</span> </p>
           <BackButton />
         </div>
       : <div className="results">
@@ -71,9 +71,8 @@ console.log("TITLEEEEEEE", title);
                     getErrorsStatus={errorMovieHandler}
                   />
                 </div>
-                : <div>
-                  <p>There is no book/movie with this title.Please try again! </p>
-                  {/* <BackButton /> */}
+                : <div className="itemMessage">
+                  <p className="errorMessage">Movie title is not available so the <span>book wins!</span> </p>
                 </div>
             )
             : null
