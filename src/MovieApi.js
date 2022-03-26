@@ -6,6 +6,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Display from "./Display";
 import Cast from "./Cast";
+import Loading from "./Loading";
 
 
 const MovieApi = (props) => {
@@ -123,7 +124,8 @@ const MovieApi = (props) => {
 // console.log(cast);
 
   return (
-    <div className="movieApi generalApiContainer">
+    Object.keys(movieData).length !== 0
+    ? <div className="movieApi generalApiContainer">
       {
         movieData ? <Display
         image={movieData.poster_path}
@@ -137,8 +139,8 @@ const MovieApi = (props) => {
         stars={movieData.stars}
       /> : null
       }
-      
     </div>
+    : <Loading />
   );
 };
 

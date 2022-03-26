@@ -543,3 +543,33 @@ footer {
   100%
     opacity: 0
     transform: translate(-10px, -10px) */
+
+
+
+
+
+/* LOADING COMPONENT */
+.loadingContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  border: 20px solid black;
+  border-radius: 50%;
+  border-top: 20px solid yellow;
+  width: 200px;
+  height: 200px;
+  animation: spinner 4s linear infinite;
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
