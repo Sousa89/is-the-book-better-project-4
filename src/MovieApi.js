@@ -5,6 +5,8 @@ import axios from "axios";
 // import state/ useEffect
 import { useState, useEffect } from "react";
 import Display from "./Display";
+import Cast from "./Cast";
+
 
 const MovieApi = (props) => {
   // declare useState
@@ -17,6 +19,8 @@ const MovieApi = (props) => {
   const [castData3, setCastData3] = useState(``);
 
   const [directorData, setDirectorData] = useState([]);
+
+  const [cast, setCast] = useState({})
   // console.log(`CHECKING CASTDATA1`, castData1);
   // console.log(`CHECKING DIRECTOR`, directorData);
   //wrap the api call in the useEffect State
@@ -39,7 +43,15 @@ const MovieApi = (props) => {
         console.log("movie data is : ",apiData.data.results[0]);
         setMovieData(apiData.data.results[0]);
         // console.log(apiData);
-        props.getMovieRating2(movieData.vote_average);
+        props.getMovieRating2(movieData.vote_average)
+        
+      })
+      .then(()=>{
+        axios({
+          url: `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=80b3efd6913b7c0573391241f786ea80&language=en-US`,
+        }).then((castData) => {
+          setMovieData({ ...movieData, director: directorName(castData.data.crew), stars: [castData.data.cast[0].name, castData.data.cast[1].name, castData.data.cast[2].name]})
+        });
       })
       // .catch((err) => {
       //   console.log("MOVIE ERROR ", err);
@@ -62,6 +74,19 @@ const MovieApi = (props) => {
   });
   }, [props]);
 
+  const directorName = (crew) => {
+    let director = []
+    crew.map((eachProperty) => {
+      if (eachProperty.job === "Director") {
+        director.push(eachProperty.name)
+        return
+      }
+    })
+    return director[0]
+  }
+
+  console.log("DIRECTOR NAME", movieData);
+
   // useEffect(() => {
   //   axios({
   //     url: `https://api.themoviedb.org/3/movie/${movieData.id}/credits?api_key=80b3efd6913b7c0573391241f786ea80&language=en-US`,
@@ -72,16 +97,30 @@ const MovieApi = (props) => {
   //     setCastData3(castData.data.cast[2].name);
 
   //     setDirectorData(castData.data.crew);
+      
   //   });
   // }, [movieData]);
   // console.log(`checking cast data`, castData1, castData2, castData3);
 
-  const directorName = directorData.map((director) => {
-    if (director.job === "Director") {
-      // console.log(`IT WORKED GOD DAMMIT`, director);
-      return director.name;
-    }
-  });
+  // console.log(movieData.id);
+  // let test = Cast(movieData.id);
+  // console.log("OVER HERE", test);
+  // const {director: director} = test
+  // console.log(director);
+
+  // const directorName = directorData.map((director) => {
+  //   if (director.job === "Director") {
+  //     // console.log(`IT WORKED GOD DAMMIT`, director);
+  //     return director.name;
+  //   }
+  // });
+
+  // const getNames = (names) => {
+  //   setCast(names)
+  // }
+
+//   Cast(movieData.id)
+// console.log(cast);
 
   return (
     <div className="movieApi generalApiContainer">
@@ -95,6 +134,7 @@ const MovieApi = (props) => {
         stars1={castData1}
         stars2={castData2}
         stars3={castData3}
+        stars={movieData.stars}
       /> : null
       }
       

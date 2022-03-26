@@ -5,31 +5,39 @@ import Display from "./Display";
 import { useState, useEffect } from "react";
 
 const BookApi = (props) => {
-  const [bookData, setBookData] = useState(true);
+  const [bookData, setBookData] = useState({});
   const [bookImage, setBookImage] = useState(null);
+  const [bookTitles, setBookTitles] = useState([]);
+  const [data, setData] = useState([]);
   
 
   useEffect(() => {
     console.log("Books Side effect is running");
-    // console.log(props.formSearch2);
+    console.log("boook query", props.formSearch2);
     axios({
       url: `https://www.googleapis.com/books/v1/volumes`,
       params: {
         q: props.formSearch2,
-        // q: "fight club",
+        // q: "harry potter",
         // q: "sdfsdafdfgdfgfag",
-        key: "AIzaSyC7nVvFwC8qpnCDnddeOCwnTXZLdwJKQuk",
+        // key: "AIzaSyC7nVvFwC8qpnCDnddeOCwnTXZLdwJKQuk",
+        key: "AIzaSyDoRrQbNko63UJtYicuNcl_iesA7acsBjI",
         // maxResults: "40",
       },
     })
       .then((results) => {
         console.log(results.data);
         console.log('Api DATA');
-        setBookData(results.data.items[0].volumeInfo);
-        setBookImage(results.data.items[0].volumeInfo.imageLinks.thumbnail);
+        // setBookData(results.data.items[0].volumeInfo);
+        // setBookImage(results.data.items[0].volumeInfo.imageLinks.thumbnail);
         // console.log("OVER HERE ", bookData.title);
-        props.getTitle2(bookData.title);
-        props.getBookRating2(bookData.averageRating);
+        // props.getTitle2(bookData.title);
+        // props.getBookRating2(bookData.averageRating);
+        console.log(results.data.items)
+        setData(results.data.items)
+        setBookTitles(bookTitle(results.data.items))
+        console.log("INDEX ", bookTitles.findIndex((eachTitle) => { return eachTitle.toLowerCase() == "fight club" }))
+        initalCheck(bookTitle(results.data.items), results.data.items)
       })
       .catch((err) => {
         props.getErrorsStatus(true);
@@ -42,16 +50,65 @@ const BookApi = (props) => {
   //   const bookImage = bookData.imageLinks.thumbnail;
   //   console.log("bookImage ", bookImage);
   // }
-  
+
+  // returns an array of the 10 book titles from api call
+  const bookTitle = (titles) => {
+    let title = [];
+    titles.map((eachTitle) => {
+      title.push(eachTitle.volumeInfo.title)
+      // console.log(eachTitle);
+    })
+    return title
+  }
+  console.log("bookTitles state", bookTitles);
+
+  const initalCheck = (titles, data) => {
+    console.log("intital check");
+    console.log(props.formSearch2.toLowerCase());
+    console.log(titles);
+    // bookTitle.findIndex((eachTitle)=>{return console.log(eachTitle.toLowerCase());})
+    // checks if the user input exactly matches a returned book title
+    // retuns the index 
+    const index = titles.findIndex((eachTitle) => { return eachTitle.toLowerCase() == props.formSearch2.toLowerCase() })
+    // if it does matches then get the book data to that title
+    if ( index != -1) {
+      setBookData(data[index].volumeInfo);
+      setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+      console.log(bookData);
+      props.getTitle2(data[index].volumeInfo.title);
+      props.getBookRating2(data[index].volumeInfo.averageRating);
+    }
+  }
+
+
+  // set the book data to selected book title
+  const handleClick = (index) => {
+    console.log('clicked', index);
+    setBookData(data[index].volumeInfo);
+    setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+    console.log(bookData);
+    props.getTitle2(data[index].volumeInfo.title);
+    props.getBookRating2(data[index].volumeInfo.averageRating);
+  }
+
   return (
     <div className="bookApi generalApiContainer">
-      <Display
-        image={bookImage}
-        overview={bookData.description}
-        title={bookData.title}
-        releaseDate={bookData.publishedDate}
-        author={bookData.authors}
-      />
+      {/* {initalCheck()} */}
+      {
+        Object.keys(bookData).length === 0
+          ? bookTitles.map((eachTitle, index) => {
+            return (
+              <button onClick={() => handleClick(index)}>{eachTitle}</button>
+            )
+          })
+          : <Display
+            image={bookImage}
+            overview={bookData.description}
+            title={bookData.title}
+            releaseDate={bookData.publishedDate}
+            author={bookData.authors}
+          />
+      }
     </div>
   );
 };

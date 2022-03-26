@@ -34,41 +34,47 @@ const Results = (props) => {
   const errorMovieHandler = (err) => {
     setMovieError(err);
   }
-
+console.log("TITLEEEEEEE", title);
   console.log("Book Error is : ", bookError);
   console.log("Movie Error is : ", movieError);
   return (
-      bookError  ? <div><p>There is no book/movie with this title.Please try again! </p><BackButton /></div> : 
-     <div className="results">
-      <Title title={title} />
-      <div className="wrapper">
-        <BookApi
-          formSearch2={props.formSearch}
-          getTitle2={getTitle}
-          getBookRating2={getBookRating}
-          getErrorsStatus={errorBookHandler}
-        />
-        <div className="versusRatingContainer">
-          <Versus />
-          <Rating bRating={bookRating} mRating={movieRating} />
+      bookError  
+      ? <div>
+          <p>There is no book/movie with this title.Please try again! </p>
+          <BackButton />
         </div>
-        
-        {
-        title ? 
-        ( 
-        !movieError ? <MovieApi
-          formSearch2={title}
-          getMovieRating2={getMovieRating}
-          getErrorsStatus={errorMovieHandler}
-        /> : <div><p>There is no book/movie with this title.Please try again! </p><BackButton /></div>
-        ) : null
-        }
-      </div>
-      
-    </div> 
-    
-      
-    
+      : <div className="results">
+        <Title title={title} />
+        <div className="wrapper">
+          <BookApi
+            formSearch2={props.formSearch}
+            getTitle2={getTitle}
+            getBookRating2={getBookRating}
+            getErrorsStatus={errorBookHandler}
+          />
+          <div className="versusRatingContainer">
+            <Versus />
+            <Rating bRating={bookRating} mRating={movieRating} />
+          </div>
+          
+          {
+            title
+            ? (!movieError
+                ? <MovieApi
+                  formSearch2={title}
+                  getMovieRating2={getMovieRating}
+                  getErrorsStatus={errorMovieHandler}
+                />
+                : <div>
+                  <p>There is no book/movie with this title.Please try again! </p>
+                  <BackButton />
+                </div>
+            )
+            : null
+          }
+          <BackButton />
+        </div>
+      </div> 
   );
 };
 
