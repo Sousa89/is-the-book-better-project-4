@@ -33,7 +33,7 @@ const Results = (props) => {
   };
   const errorMovieHandler = (err) => {
     setMovieError(err);
-  }``
+  }
 console.log("TITLEEEEEEE", title);
   console.log("Book Error is : ", bookError);
   console.log("Movie Error is : ", movieError);
