@@ -12,7 +12,7 @@ const Rating = (props) => {
           <p> {props.mRating} Movie rating</p>
         </div> 
       </div>
-      <Winner book={newBookRating} movie={props.mRating} />
+      {/* <Winner book={newBookRating} movie={props.mRating} /> */}
     </div>
   );
 };

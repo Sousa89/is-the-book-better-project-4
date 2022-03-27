@@ -10,7 +10,7 @@ const BookApi = (props) => {
   const [bookImage, setBookImage] = useState(null);
   const [bookTitles, setBookTitles] = useState([]);
   const [data, setData] = useState([]);
-  
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     console.log("Books Side effect is running");
@@ -74,20 +74,28 @@ const BookApi = (props) => {
   console.log("bookTitles state", bookTitles);
 
   const initalCheck = (titles, data) => {
-    console.log("intital check");
+    console.log("intital check", props.selectedIndex);
     console.log(props.formSearch2.toLowerCase());
     console.log(titles);
     // bookTitle.findIndex((eachTitle)=>{return console.log(eachTitle.toLowerCase());})
-    // checks if the user input exactly matches a returned book title
-    // retuns the index 
-    const index = titles.findIndex((eachTitle) => { return eachTitle.toLowerCase() == props.formSearch2.toLowerCase() })
-    // if it does matches then get the book data to that title
-    if ( index != -1) {
-      setBookData(data[index].volumeInfo);
-      setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+    if (props.selectedIndex) {
+      setBookData(data[props.selectedIndex].volumeInfo);
+      setBookImage(data[props.selectedIndex].volumeInfo.imageLinks.thumbnail);
       console.log(bookData);
-      props.getTitle2(data[index].volumeInfo.title);
-      props.getBookRating2(data[index].volumeInfo.averageRating);
+      props.getTitle2(data[props.selectedIndex].volumeInfo.title);
+      props.getBookRating2(data[props.selectedIndex].volumeInfo.averageRating);
+    } else {
+      // checks if the user input exactly matches a returned book title
+      // retuns the index of -1 if not
+      const index = titles.findIndex((eachTitle) => { return eachTitle.toLowerCase() == props.formSearch2.toLowerCase() })
+      // if it does matches then get the book data to that title
+      if ( index != -1) {
+        setBookData(data[index].volumeInfo);
+        setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+        console.log(bookData);
+        props.getTitle2(data[index].volumeInfo.title);
+        props.getBookRating2(data[index].volumeInfo.averageRating);
+      }
     }
   }
 
@@ -100,6 +108,8 @@ const BookApi = (props) => {
     console.log(data[index].volumeInfo);
     props.getTitle2(data[index].volumeInfo.title);
     props.getBookRating2(data[index].volumeInfo.averageRating);
+    // setSelectedIndex(index)
+    props.getIndex2(index)
   }
 
   return (
