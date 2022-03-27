@@ -28,7 +28,9 @@ function App() {
       <Footer />
       {/* display */}
     </div>
-  );
+    
+    
+ );
 }
 
 export default App;

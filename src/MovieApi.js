@@ -11,8 +11,8 @@ import Loading from "./Loading";
 
 const MovieApi = (props) => {
   // declare useState
-  // console.log("Movie Side effect is running");
-  // console.log(props.formSearch2);
+  console.log("Movie Side effect is running");
+  console.log(props.formSearch2);
   const [movieData, setMovieData] = useState({});
 
   const [castData1, setCastData1] = useState(``);
@@ -124,7 +124,8 @@ const MovieApi = (props) => {
 // console.log(cast);
 
   return (
-    Object.keys(movieData).length !== 0
+    movieData
+    // Object.keys(movieData).length != 0
     ? <div className="movieApi generalApiContainer">
       {
         movieData ? <Display
