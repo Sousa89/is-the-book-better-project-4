@@ -328,7 +328,6 @@ a {
   border-radius: 10px;
   background-color: #ace8cd;
   cursor: pointer;
-  
 }
 
 /* Header.js */
@@ -416,7 +415,6 @@ a {
 }
 .movieApi {
   flex-direction: row-reverse;
-  
 }
 .bookApi .display {
   display: flex;
@@ -441,13 +439,11 @@ a {
   /* animation: bounce 0.4s linear; */
   justify-content: center;
   margin: 55px 0;
-  
 }
 
 .winner {
   display: none;
 }
-
 
 .ratingTextContainer {
   margin: 5% 2%;
@@ -459,9 +455,8 @@ a {
 .ratingWrapper {
   display: flex;
   margin-left: 10px;
-  
 }
-.ratingWrapper p:nth-child(2)  {
+.ratingWrapper p:nth-child(2) {
   margin-left: 10px;
 }
 
@@ -491,7 +486,6 @@ a {
 .winnerBtn:hover {
   cursor: pointer;
   color: red;
-  
 }
 
 .button2 {
@@ -539,9 +533,6 @@ a {
   }
 }
 
-
-
-
 .back button {
   text-align: center;
   border: none;
@@ -585,11 +576,10 @@ video {
   bottom: 0;
   z-index: -1;
 }
-.titleList{
+.titleList {
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
   margin-bottom: 30px;
-  
 }
 .titleDecoration {
   background-color: #0000009c;
@@ -600,10 +590,10 @@ video {
   margin: 10% 0 10% 0;
   text-decoration: underline #5da9c2;
 }
-.titleItems{
+.titleItems {
   list-style: none;
 }
-.titleList:hover{
+.titleList:hover {
   color: #3fc589;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -632,8 +622,6 @@ video {
   text-align: center;
   line-height: 1.1;
 }
-
-
 
 /* FOOTER COMPONENT */
 
@@ -691,10 +679,6 @@ footer {
     opacity: 0
     transform: translate(-10px, -10px) */
 
-
-
-
-
 /* LOADING COMPONENT */
 .loadingContainer {
   position: fixed;
@@ -717,47 +701,60 @@ footer {
 }
 
 @keyframes spinner {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* CALCULATING COMPONENT */
-.calculatingContainer{
+.calculatingContainer {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.calculatingBar{
-    position: relative;
-    height: 10px;
-    width: 30%;
-    border: 10px solid skyblue;
-    border-radius: 15px;
+.calculatingBar {
+  position: relative;
+  height: 10px;
+  width: 30%;
+  border: 10px solid skyblue;
+  border-radius: 15px;
 }
-.calculatingBar .color{
-    position: absolute;
-    background-color: #ffffff;
-    width: 0px;
-    height: 10px;
-    border-radius: 15px;
-    animation: progress 4s ease-in infinite  ;    
+.calculatingBar .color {
+  position: absolute;
+  background-color: #ffffff;
+  width: 0px;
+  height: 10px;
+  border-radius: 15px;
+  animation: progress 4s ease-in infinite;
 }
-@keyframes progress{
-    0%{
-      width: 0%;
-    }
-    25%{
-        width: 50%;
-    }
-    50%{
-        width: 75%;
-    }
-    75%{
-        width: 85%;
-    }
-    100%{
-        width: 100%;
-    }
-};
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  75% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .formComp input {
+    width: 100%;
+  }
+  .formComp button {
+    width: 35%;
+  }
+}
