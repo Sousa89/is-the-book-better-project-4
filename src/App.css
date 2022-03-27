@@ -560,7 +560,7 @@ video {
   display: flex;
   justify-content: center;
   width: 680px;
-  height: 100vh;
+  height: 100px;
   margin: 0 auto;
 }
 .itemMessage span {
@@ -646,7 +646,7 @@ footer {
 .loading {
   border: 20px solid black;
   border-radius: 50%;
-  border-top: 20px solid yellow;
+  border-top: 20px solid skyblue;
   width: 200px;
   height: 200px;
   animation: spinner 4s linear infinite;
@@ -669,7 +669,7 @@ footer {
     position: relative;
     height: 10px;
     width: 30%;
-    border: 10px solid #f4a261;
+    border: 10px solid skyblue;
     border-radius: 15px;
 }
 .calculatingBar .color{

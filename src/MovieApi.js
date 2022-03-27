@@ -41,7 +41,7 @@ const MovieApi = (props) => {
       },
     })
       .then((apiData) => {
-        console.log("movie data is : ",apiData.data.results[0]);
+        // console.log("movie data is : ",apiData.data.results[0]);
         setMovieData(apiData.data.results[0]);
         // console.log(apiData);
         props.getMovieRating2(movieData.vote_average)
@@ -86,7 +86,7 @@ const MovieApi = (props) => {
     return director[0]
   }
 
-  console.log("DIRECTOR NAME", movieData);
+  // console.log("DIRECTOR NAME", movieData);
 
   // useEffect(() => {
   //   axios({
@@ -132,7 +132,7 @@ const MovieApi = (props) => {
         overview={movieData.overview}
         title={movieData.title}
         releaseDate={movieData.release_date}
-        director={directorName}
+        director={movieData.director}
         stars1={castData1}
         stars2={castData2}
         stars3={castData3}
