@@ -97,7 +97,7 @@ const BookApi = (props) => {
     console.log('clicked', index);
     setBookData(data[index].volumeInfo);
     setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
-    console.log(bookData);
+    console.log(data[index].volumeInfo);
     props.getTitle2(data[index].volumeInfo.title);
     props.getBookRating2(data[index].volumeInfo.averageRating);
   }
@@ -108,33 +108,33 @@ const BookApi = (props) => {
       {
         bookTitles[0]
           ? Object.keys(bookData).length === 0
-          ? 
-          <div>
-            <p className="subHeader">Here are the top book results returned from your search:</p>
-           <div className="titleDecoration"> 
-            {
-              bookTitles.map((eachTitle, index) => {
-                return (
-                  // <button onClick={() => handleClick(index)}>{eachTitle}</button>
-                  <ul className="titleList">
-                    <li className="titleItems"onClick={() => handleClick(index)}>{eachTitle}
+            ? 
+            <div>
+              <p className="subHeader">Here are the top book results returned from your search:</p>
+            <div className="titleDecoration"> 
+              {
+                bookTitles.map((eachTitle, index) => {
+                  return (
+                    // <button onClick={() => handleClick(index)}>{eachTitle}</button>
+                    <ul className="titleList">
+                      <li className="titleItems"onClick={() => handleClick(index)}>{eachTitle}
 
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
 
-                )
-              })
-            }
-          </div>
-          </div>
-          
-          : <Display
-            image={bookImage}
-            overview={bookData.description}
-            title={bookData.title}
-            releaseDate={bookData.publishedDate}
-            author={bookData.authors}
-          />
+                  )
+                })
+              }
+            </div>
+            </div>
+            
+            : <Display
+              image={bookImage}
+              overview={bookData.description}
+              title={bookData.title}
+              releaseDate={bookData.publishedDate}
+              author={bookData.authors}
+            />
           : <Loading />
       } 
     </div>

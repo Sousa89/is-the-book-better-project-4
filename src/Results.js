@@ -48,11 +48,12 @@ const Results = (props) => {
         setBookWins(false)
       }
       setCalculating(false)
-    }, 4000)
+    }, 2000)
   }
 console.log("TITLEEEEEEE", title);
   console.log("Book Error is : ", bookError);
   console.log("Movie Error is : ", movieError);
+  console.log("MOVIE TITLE IS: ", title);
   return (
     calculating 
     // play the calculating animation 
