@@ -21,12 +21,14 @@ const Display = (props) => {
         <div className="textContainer">
           <h4>{props.author ? "Author" : "Director"}</h4>
           <p>{props.author ? props.author : props.director}</p>
-          <h4>{props.releaseDate}</h4>
+          <h4>{props.author ? "Published Date:" : "Release Date:"}</h4>
+          <p>{props.releaseDate}</p>
+          <h4>{props.author ? "" : "Cast:"}</h4>
           {
             props.stars
             ? props.stars.map( (star) => {
                 return(
-                  <p>Testing {star}</p>
+                  <p>{star}</p>
                 )
             })
             : null

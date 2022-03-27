@@ -6,6 +6,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Display from "./Display";
 import Cast from "./Cast";
+import Loading from "./Loading";
 
 
 const MovieApi = (props) => {
@@ -40,7 +41,7 @@ const MovieApi = (props) => {
       },
     })
       .then((apiData) => {
-        console.log("movie data is : ",apiData.data.results[0]);
+        // console.log("movie data is : ",apiData.data.results[0]);
         setMovieData(apiData.data.results[0]);
         // console.log(apiData);
         props.getMovieRating2(movieData.vote_average)
@@ -85,7 +86,7 @@ const MovieApi = (props) => {
     return director[0]
   }
 
-  console.log("DIRECTOR NAME", movieData);
+  // console.log("DIRECTOR NAME", movieData);
 
   // useEffect(() => {
   //   axios({
@@ -123,22 +124,23 @@ const MovieApi = (props) => {
 // console.log(cast);
 
   return (
-    <div className="movieApi generalApiContainer">
+    Object.keys(movieData).length !== 0
+    ? <div className="movieApi generalApiContainer">
       {
         movieData ? <Display
         image={movieData.poster_path}
         overview={movieData.overview}
         title={movieData.title}
         releaseDate={movieData.release_date}
-        director={directorName}
+        director={movieData.director}
         stars1={castData1}
         stars2={castData2}
         stars3={castData3}
         stars={movieData.stars}
       /> : null
       }
-      
     </div>
+    : <Loading />
   );
 };
 

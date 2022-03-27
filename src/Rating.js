@@ -6,9 +6,11 @@ const Rating = (props) => {
   return (
     <div className="rating">
       <div className="ratingTextContainer">
-        <h2>The Ratings</h2>
-        <p>Book rate: {newBookRating}</p>
-        <p>Movie rate: {props.mRating}</p>
+        <h2>The Ratings:</h2>
+        <div className="ratingWrapper">
+          <p>Book rating {newBookRating} </p>
+          <p> {props.mRating} Movie rating</p>
+        </div> 
       </div>
       <Winner book={newBookRating} movie={props.mRating} />
     </div>

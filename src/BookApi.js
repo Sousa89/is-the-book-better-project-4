@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import Display from "./Display";
+import Loading from "./Loading";
 import { useState, useEffect } from "react";
 
 const BookApi = (props) => {
@@ -39,10 +40,20 @@ const BookApi = (props) => {
         console.log("INDEX ", bookTitles.findIndex((eachTitle) => { return eachTitle.toLowerCase() == "fight club" }))
         initalCheck(bookTitle(results.data.items), results.data.items)
       })
-      .catch((err) => {
+      .catch(function (error) {
         props.getErrorsStatus(true);
-        console.log("BOOK ERROR ", err);
-        alert('The book is not present');
+        if (error.apiData) {
+          // Request made and server responded
+          console.log(error.apiData.data);
+          console.log(error.apiData.status);
+          console.log(error.apiData.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
       });
   }, [props]);
 
@@ -95,17 +106,28 @@ const BookApi = (props) => {
     <div className="bookApi generalApiContainer">
       {/* {initalCheck()} */}
       {
-        Object.keys(bookData).length === 0
-          ? <div> 
-            <p>Here are the top results returned from your search</p>
+        bookTitles[0]
+          ? Object.keys(bookData).length === 0
+          ? 
+          <div>
+            <p className="subHeader">Here are the top book results returned from your search:</p>
+           <div className="titleDecoration"> 
             {
               bookTitles.map((eachTitle, index) => {
                 return (
-                  <button onClick={() => handleClick(index)}>{eachTitle}</button>
+                  // <button onClick={() => handleClick(index)}>{eachTitle}</button>
+                  <ul className="titleList">
+                    <li className="titleItems"onClick={() => handleClick(index)}>{eachTitle}
+
+                    </li>
+                  </ul>
+
                 )
               })
             }
           </div>
+          </div>
+          
           : <Display
             image={bookImage}
             overview={bookData.description}
@@ -113,7 +135,8 @@ const BookApi = (props) => {
             releaseDate={bookData.publishedDate}
             author={bookData.authors}
           />
-      }
+          : <Loading />
+      } 
     </div>
   );
 };
