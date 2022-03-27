@@ -25,7 +25,7 @@ const Form = (props) => {
           type="text"
           name="userSearch"
           id="userSearch"
-          placeholder="searchTitle"
+          placeholder="Search"
           onChange={handleChange}
           value={form}
         ></input>
