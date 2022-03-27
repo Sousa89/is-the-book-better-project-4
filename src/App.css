@@ -278,6 +278,7 @@ a {
   /* background-color: #5da9c29d; */
   background-color: #271870c0;
   color: white;
+  min-height: 100vh;
 }
 
 /* Forms.js */
@@ -460,8 +461,12 @@ a {
 }
 
 .versus {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  /* text-align: center; */
   font-size: 4rem;
+  width: 100%;
+  border: 1px solid red;
 }
 
 .rating {
@@ -555,7 +560,7 @@ video {
   display: flex;
   justify-content: center;
   width: 680px;
-  height: 35px;
+  height: 100vh;
   margin: 0 auto;
 }
 .itemMessage span {
@@ -651,3 +656,44 @@ footer {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* CALCULATING COMPONENT */
+.calculatingContainer{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calculatingBar{
+    position: relative;
+    height: 10px;
+    width: 30%;
+    border: 10px solid #f4a261;
+    border-radius: 15px;
+}
+.calculatingBar .color{
+    position: absolute;
+    background-color: #ffffff;
+    width: 0px;
+    height: 10px;
+    border-radius: 15px;
+    animation: progress 4s ease-in infinite  ;    
+}
+@keyframes progress{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 50%;
+    }
+    50%{
+        width: 75%;
+    }
+    75%{
+        width: 85%;
+    }
+    100%{
+        width: 100%;
+    }
+};

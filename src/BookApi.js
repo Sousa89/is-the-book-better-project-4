@@ -106,7 +106,8 @@ const BookApi = (props) => {
     <div className="bookApi generalApiContainer">
       {/* {initalCheck()} */}
       {
-        Object.keys(bookData).length === 0
+        bookTitles[0]
+          ? Object.keys(bookData).length === 0
           ? 
           <div>
             <p className="subHeader">Here are the top book results returned from your search:</p>
@@ -134,7 +135,8 @@ const BookApi = (props) => {
             releaseDate={bookData.publishedDate}
             author={bookData.authors}
           />
-      }
+          : <Loading />
+      } 
     </div>
   );
 };
