@@ -124,7 +124,7 @@ const MovieApi = (props) => {
 // console.log(cast);
 
   return (
-    movieData
+    
     // Object.keys(movieData).length != 0
     ? <div className="movieApi generalApiContainer">
       {
