@@ -750,14 +750,6 @@ footer {
   }
 }
 
-@media screen and (max-width: 370px) {
-  .formComp input {
-    width: 100%;
-  }
-  .formComp button {
-    width: 35%;
-  }
-}
 @keyframes progress {
   0% {
     width: 0%;
@@ -779,10 +771,96 @@ footer {
 /* Media Queries */
 
 @media screen and (max-width: 370px) {
+  .header p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    width: 100%;
+    text-align: center;
+  }
+  .header h1 {
+    line-height: 0.9;
+    margin-bottom: 15%;
+  }
   .formComp input {
     width: 100%;
+    margin-top: 40%;
   }
   .formComp button {
     width: 100%;
+    position: absolute;
+    right: 3px;
+    top: 50px;
+    box-shadow: none;
+    height: 34px;
+    margin-top: 40%;
+  }
+  .bookApi {
+    margin-bottom: 30%;
+  }
+  .bookApi .display,
+  .movieApi .display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 0 10px 70px 10px;
+    padding: 35px;
+  }
+  .title h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .header p {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    width: 100%;
+    text-align: center;
+  }
+  .header h1 {
+    line-height: 0.9;
+    margin-bottom: 10%;
+  }
+  .formComp input {
+    width: 100%;
+    margin-top: 40%;
+  }
+  .formComp button {
+    width: 100%;
+    position: absolute;
+    right: 3px;
+    top: 50px;
+    box-shadow: none;
+    height: 34px;
+    margin-top: 40%;
+  }
+}
+@media screen and (max-width: 1015px) {
+  .itemMessage {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 725px) {
+  .errorMessage {
+    font-size: 1.25rem;
+  }
+}
+@media screen and (max-width: 609px) {
+  .errorMessage {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 505px) {
+  .errorMessage {
+    font-size: 1rem;
+  }
+  .itemMessage {
+    height: 10%;
+  }
+}
+@media screen and (max-width: 445px) {
+  .bookApi {
+    margin-bottom: 25%;
   }
 }
