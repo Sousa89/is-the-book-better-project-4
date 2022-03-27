@@ -66,7 +66,7 @@ console.log("TITLEEEEEEE", title);
       ? 
       <div>
         <div className="itemMessage">
-          <p className="errorMessage">We couldn't find that title! <br></br>Please search for another one! </p>
+          <p className="errorMessage">There is no book with that name <br></br>Please search for another one! </p>
         </div>
         <BackButton />
       </div>
@@ -122,8 +122,12 @@ console.log("TITLEEEEEEE", title);
                   }
                 </div>
                 // display this if no movie matches the book title
-                : <div className="itemMessage">
-                  <p className="errorMessage">We couldn't find that title! <br></br>Please search for another one!</p>
+                : 
+                <div>
+                  <div className="itemMessage">
+                      <p className="errorMessage">There is no movie with that title.<br></br>Please search for another one!</p>
+                  </div>
+                  <BackButton />
                 </div>
             
             // display nothing if  no bookapi title
