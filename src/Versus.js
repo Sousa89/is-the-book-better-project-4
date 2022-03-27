@@ -1,12 +1,14 @@
 // Verus.js
-import BackButton from "./BackButton";
+import BackButton2 from "./BackButton2";
 
 const Versus = (props) => {
     return (
-        <div className="versus">
-            <BackButton />
-            <h2>VS</h2>
-            <p onClick={() => props.handleClick()}>WINNER?</p>
+        <div>
+            {/* <BackButton2 /> */}
+            <div className="versus">
+                <h2>VS</h2>
+            </div>
+            
         </div>
     );
 };

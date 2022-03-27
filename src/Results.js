@@ -2,6 +2,8 @@
 import BookApi from "./BookApi";
 import MovieApi from "./MovieApi";
 import BackButton from "./BackButton";
+import BackButton2 from "./BackButton2";
+import WinnerButton from "./WinnerButton";
 import { useState } from "react";
 import Title from "./Title";
 import Rating from "./Rating";
@@ -60,10 +62,13 @@ console.log("TITLEEEEEEE", title);
     // hide the calculating animation 
     : bookError  
       // what is display if no api results comes back
-      ? <div className="itemMessage">
-        <p className="errorMessage">Book title not available so the <span>movie wins!</span> </p>
-          <BackButton />
+      ? 
+      <div>
+        <div className="itemMessage">
+          <p className="errorMessage">We couldn't find that title! <br></br>Please search for another one! </p>
         </div>
+        <BackButton />
+      </div>
       // show the book infromation
       : <div className="results">
         <Title
@@ -95,8 +100,13 @@ console.log("TITLEEEEEEE", title);
                 ? <div> 
                   { // only display when both book and movie container shows
                     bookWins && movieWins
-                    ? <div className="versusRatingContainer">
-                      <Versus handleClick={ handleCalculatingClick}/>
+                    ? 
+                    <div className="button2">
+                      <BackButton2 />
+                      <div className="versusRatingContainer">
+                        <Versus handleClick={ handleCalculatingClick}/>
+                      </div>
+                      <WinnerButton handleClick={ handleCalculatingClick}/>
                     </div>
                     : null
                   }
@@ -112,7 +122,7 @@ console.log("TITLEEEEEEE", title);
                 </div>
                 // display this if no movie matches the book title
                 : <div className="itemMessage">
-                  <p className="errorMessage">Movie title is not available so the <span>book wins!</span> </p>
+                  <p className="errorMessage">We couldn't find that title! <br></br>Please search for another one!</p>
                 </div>
             
             // display nothing if  no bookapi title
