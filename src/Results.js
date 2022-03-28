@@ -20,6 +20,7 @@ const Results = (props) => {
   const [calculating, setCalculating] = useState(false);
   const [bookWins, setBookWins] = useState(true);
   const [movieWins, setMovieWins] = useState(true);
+  const [index, setIndex] = useState(null);
 
   
   const getTitle = (headlineTitle) => {
@@ -40,11 +41,14 @@ const Results = (props) => {
   const errorMovieHandler = (err) => {
     setMovieError(err);
   }
+  const getIndex = (number) => {
+    setIndex(number)
+  }
 
   const handleCalculatingClick = () => {
     setCalculating(true)
     setTimeout(()=>{
-      if (bookRating > movieRating) {
+      if (bookRating * 2 > movieRating) {
         setMovieWins(false)
       } else {
         setBookWins(false)
@@ -62,7 +66,7 @@ console.log("TITLEEEEEEE", title);
       ? <Calculating />
     // hide the calculating animation 
     : bookError  
-      // what is display if no api results comes back
+      // error message is display if no api results comes back
       ? 
       <div>
         <div className="itemMessage">
@@ -85,6 +89,8 @@ console.log("TITLEEEEEEE", title);
               getTitle2={getTitle}
               getBookRating2={getBookRating}
               getErrorsStatus={errorBookHandler}
+              selectedIndex={index}
+              getIndex2={getIndex}
             />
             : null
           }
