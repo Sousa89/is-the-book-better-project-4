@@ -522,16 +522,25 @@ a {
   height: 75px;
   margin-top: 40px;
   animation: leftToRight 3s ease-in-out;
-  margin-left: 32%;
+  animation-delay: 3s;
+  margin-left: -100%;
+  /* margin-left: 32%; */
+  transition: margin-left 4s;
+  opacity: 0;
 }
-@keyframes leftToRight {
+
+.showRating {
+  margin-left: 32%;
+  opacity: 1;
+}
+/* @keyframes leftToRight {
   from {
     margin-left: -100%;
   }
   to {
     margin-left: 32%;
   }
-}
+} */
 
 .back button {
   text-align: center;
