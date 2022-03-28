@@ -2,7 +2,7 @@
 
 const WinnerButton = (props) => {
   return (
-    <div>
+    <div className="winnerBtnContainer">
       
         <p className="winnerBtn" onClick={() => props.handleClick()}>WINNER?</p>
       
