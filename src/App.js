@@ -1,10 +1,10 @@
 import "./App.css";
-import Form from "./Form";
-import Results from "./Results";
-import Footer from "./Footer";
+import Form from "./components/Form";
+import Results from "./components/Results";
+import Footer from "./components/Footer";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import BackgroundVideo from "./BackgroundVideo";
+import BackgroundVideo from "./components/BackgroundVideo";
 
 function App() {
   const [searchParams, setSearchParams] = useState(null);
