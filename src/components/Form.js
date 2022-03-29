@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Header
- from "./Header";
+import Header from "./Header";
 const Form = (props) => {
   const [form, setForm] = useState("");
   const handleChange = (e) => {
@@ -29,7 +28,7 @@ const Form = (props) => {
           onChange={handleChange}
           value={form}
         ></input>
-        
+
         <Link to="/results">
           <button>Submit</button>
         </Link>
