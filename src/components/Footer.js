@@ -1,22 +1,22 @@
 // Footer.js
 
-const Footer= ()=>{
-  return(
-  <div>
-
-    <footer>
-        <p>Made by 
-          <a href="https://www.alvinwchou.com/"> Alvin Chou</a>, <a href="https://yadavanswebsite.com/"> Yadavan Aravinthan</a>,
+const Footer = () => {
+  return (
+    <div>
+      <footer>
+        <p>
+          Made by
+          <a href="https://www.alvinwchou.com/"> Alvin Chou</a>,{" "}
+          <a href="https://yadavanswebsite.com/"> Yadavan Aravinthan</a>,
           <a href="https://www.sousadanoite.com"> Sousa (Kevin De Sousa)</a>,
           and <a href="https://adrianstoian.ca/"> Adrian Stoian </a>
-            at <a href="https://junocollege.com/">Juno College</a> using the
-             <a href="https://developers.themoviedb.org/"> TMDB API</a>,
-              and <a href="https://developers.google.com/books"> Google Books API</a>
-          </p>
-    </footer>
-  </div>
-  )
-}
+          at <a href="https://junocollege.com/">Juno College</a> using the
+          <a href="https://developers.themoviedb.org/"> TMDB API</a>, and{" "}
+          <a href="https://developers.google.com/books"> Google Books API</a>
+        </p>
+      </footer>
+    </div>
+  );
+};
 
-
-export default Footer
+export default Footer;

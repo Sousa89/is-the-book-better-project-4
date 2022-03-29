@@ -18,27 +18,23 @@ const Display = (props) => {
       </div>
       {/* end of  imageContainer div */}
 
-        <div className="textContainer">
-          <h4>{props.author ? "Author" : "Director"}</h4>
-          <p>{props.author ? props.author : props.director}</p>
-          <h4>{props.author ? "Published Date:" : "Release Date:"}</h4>
-          <p>{props.releaseDate}</p>
-          <h4>{props.author ? "" : "Cast:"}</h4>
-          {
-            props.stars
-            ? props.stars.map( (star) => {
-                return(
-                  <p>{star}</p>
-                )
+      <div className="textContainer">
+        <h4>{props.author ? "Author" : "Director"}</h4>
+        <p>{props.author ? props.author : props.director}</p>
+        <h4>{props.author ? "Published Date:" : "Release Date:"}</h4>
+        <p>{props.releaseDate}</p>
+        <h4>{props.author ? "" : "Cast:"}</h4>
+        {props.stars
+          ? props.stars.map((star) => {
+              return <p>{star}</p>;
             })
-            : null
-          }
-          {/* <p>{props.stars1}</p>
+          : null}
+        {/* <p>{props.stars1}</p>
           <p>{props.stars2}</p>
           <p>{props.stars3}</p> */}
-          <p>{props.overview}</p>
-        </div>
-        {/* end of textContainer */}
+        <p>{props.overview}</p>
+      </div>
+      {/* end of textContainer */}
     </div>
     // end of displayContainer div
   );
