@@ -323,7 +323,8 @@ a {
   background: skyblue;
 }
 
-.formComp button:hover {
+.formComp button:hover,
+.formComp button:focus {
   border: none;
   border-radius: 10px;
   background-color: #ace8cd;
@@ -483,7 +484,8 @@ a {
   box-shadow: 3px 3px 3px;
   margin-left: 50%;
 }
-.winnerBtn:hover {
+.winnerBtn:hover,
+.winnerBtn:focus {
   cursor: pointer;
   color: red;
 }
@@ -510,7 +512,8 @@ a {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
-.back2 button:hover {
+.back2 button:hover,
+.back2 button:focus {
   cursor: pointer;
   color: red;
 }
@@ -553,7 +556,8 @@ a {
   background: skyblue;
   box-shadow: 3px 3px 3px;
 }
-.back button:hover {
+.back button:hover,
+.back button:focus {
   cursor: pointer;
   color: red;
 }
@@ -602,7 +606,8 @@ video {
 .titleItems {
   list-style: none;
 }
-.titleList:hover {
+.titleList:hover,
+.titleList:focus {
   color: #3fc589;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -948,6 +953,12 @@ footer {
   }
   .App .results .title h1 {
     font-size: 1.8rem;
+  }
+  .bigTitle {
+    font-size: 1.7rem;
+    font-family: "Maitree", sans-serif;
+    line-height: 1.1;
+    font-weight: 600;
   }
 }
 
