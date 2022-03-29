@@ -1,6 +1,5 @@
 // Rating.js
 import { useState } from "react";
-// import Winner from "./Winner";
 
 const Rating = (props) => {
   const newBookRating = props.bRating * 2;
@@ -19,7 +18,6 @@ const Rating = (props) => {
           <p>Movie rating {props.mRating} </p>
         </div>
       </div>
-      {/* <Winner book={newBookRating} movie={props.mRating} /> */}
     </div>
   );
 };

@@ -4,7 +4,6 @@ import Header from "./Header";
 const Form = (props) => {
   const [form, setForm] = useState("");
   const handleChange = (e) => {
-    console.log(e.target.value);
     setForm(e.target.value);
   };
 

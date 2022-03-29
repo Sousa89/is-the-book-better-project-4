@@ -1,10 +1,8 @@
 // Display.js;
 
 const Display = (props) => {
-  // console.log(`checking STARS1`, props.stars1, props.stars2, props.stars3);
 
   return (
-    // <div className="wrapper"></div>
     <div className="display">
       <div className="imageContainer">
         {props.author ? (
@@ -16,7 +14,6 @@ const Display = (props) => {
           />
         )}
       </div>
-      {/* end of  imageContainer div */}
 
       <div className="textContainer">
         <h4>{props.author ? "Author" : "Director"}</h4>
@@ -29,9 +26,6 @@ const Display = (props) => {
               return <p>{star}</p>;
             })
           : null}
-        {/* <p>{props.stars1}</p>
-          <p>{props.stars2}</p>
-          <p>{props.stars3}</p> */}
         <p>{props.overview}</p>
       </div>
       {/* end of textContainer */}

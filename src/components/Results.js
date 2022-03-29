@@ -9,7 +9,6 @@ import Title from "./Title";
 import Rating from "./Rating";
 import Versus from "./Versus";
 import Calculating from "./Calculating";
-// import { useParams } from "react-router-dom";
 
 const Results = (props) => {
   const [title, setTitle] = useState("");
@@ -24,9 +23,7 @@ const Results = (props) => {
 
   const getTitle = (headlineTitle) => {
     setTitle(headlineTitle);
-    // console.log("title ", title);
   };
-  // console.log("Results.js", props.formSearch);
   const getBookRating = (getRating) => {
     setBookRating(getRating);
   };
@@ -54,10 +51,6 @@ const Results = (props) => {
       setCalculating(false);
     }, 2000);
   };
-  console.log("TITLEEEEEEE", title);
-  console.log("Book Error is : ", bookError);
-  console.log("Movie Error is : ", movieError);
-  console.log("MOVIE TITLE IS: ", title);
   return calculating ? (
     // play the calculating animation
     <Calculating />
@@ -88,10 +81,6 @@ const Results = (props) => {
             getIndex2={getIndex}
           />
         ) : null}
-        {/* <div className="versusRatingContainer">
-            <Versus />
-            <Rating bRating={bookRating} mRating={movieRating} />
-          </div> */}
 
         {title ? (
           // show when there is a title from bookapi
