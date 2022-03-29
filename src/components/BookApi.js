@@ -10,7 +10,7 @@ const BookApi = (props) => {
   const [bookImage, setBookImage] = useState(null);
   const [bookTitles, setBookTitles] = useState([]);
   const [data, setData] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  // const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     console.log("Books Side effect is running");
@@ -37,7 +37,7 @@ const BookApi = (props) => {
         console.log(results.data.items)
         setData(results.data.items)
         setBookTitles(bookTitle(results.data.items))
-        console.log("INDEX ", bookTitles.findIndex((eachTitle) => { return eachTitle.toLowerCase() == "fight club" }))
+        console.log("INDEX ", bookTitles.findIndex((eachTitle) => { return eachTitle.toLowerCase() === "fight club" }))
         initalCheck(bookTitle(results.data.items), results.data.items)
       })
       .catch(function (error) {
@@ -68,6 +68,7 @@ const BookApi = (props) => {
     titles.map((eachTitle) => {
       title.push(eachTitle.volumeInfo.title)
       // console.log(eachTitle);
+      return
     })
     return title
   }
@@ -87,9 +88,9 @@ const BookApi = (props) => {
     } else {
       // checks if the user input exactly matches a returned book title
       // retuns the index of -1 if not
-      const index = titles.findIndex((eachTitle) => { return eachTitle.toLowerCase() == props.formSearch2.toLowerCase() })
+      const index = titles.findIndex((eachTitle) => { return eachTitle.toLowerCase() === props.formSearch2.toLowerCase() })
       // if it does matches then get the book data to that title
-      if ( index != -1) {
+      if ( index !== -1) {
         setBookData(data[index].volumeInfo);
         setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
         console.log(bookData);

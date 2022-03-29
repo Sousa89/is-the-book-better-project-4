@@ -1,8 +1,8 @@
 import { useState } from "react";
 import backgroundVideo1 from "../videoFiles/library.mp4";
 import backgroundVideo2 from "../videoFiles/library2.mp4";
-import backgroundVideo3 from "../videoFiles/film1.mp4";
-import backgroundVideo4 from "../videoFiles/film2.mp4";
+// import backgroundVideo3 from "../videoFiles/film1.mp4";
+// import backgroundVideo4 from "../videoFiles/film2.mp4";
 // import backgroundVideo5 from "../videoFiles/film3.mp4";
 
 const BackgroundVideo = (props) => {
@@ -10,13 +10,13 @@ const BackgroundVideo = (props) => {
   // const backgroundVideo = backgroundVideo1
   const [backgroundVideo, setBackgroundVideo] = useState(backgroundVideo1)
   const [backgroundA, setBackgroundA] = useState(true)
-  const handleBGVideo = () => {
+  // const handleBGVideo = () => {
     
-    console.log("handleBGVideo function");
-    console.log(backgroundVideo);
-    setBackgroundVideo(backgroundVideo2)
-    console.log(backgroundVideo); 
-  }
+  //   console.log("handleBGVideo function");
+  //   console.log(backgroundVideo);
+  //   setBackgroundVideo(backgroundVideo2)
+  //   console.log(backgroundVideo); 
+  // }
   
   setTimeout(() => {
     console.log('setTimeout', backgroundVideo);

@@ -5,7 +5,7 @@ import axios from "axios";
 // import state/ useEffect
 import { useState, useEffect } from "react";
 import Display from "./Display";
-import Cast from "./Cast";
+// import Cast from "./Cast";
 import Loading from "./Loading";
 
 
@@ -15,13 +15,13 @@ const MovieApi = (props) => {
   console.log(props.formSearch2);
   const [movieData, setMovieData] = useState({});
 
-  const [castData1, setCastData1] = useState(``);
-  const [castData2, setCastData2] = useState(``);
-  const [castData3, setCastData3] = useState(``);
+  // const [castData1, setCastData1] = useState(``);
+  // const [castData2, setCastData2] = useState(``);
+  // const [castData3, setCastData3] = useState(``);
 
-  const [directorData, setDirectorData] = useState([]);
+  // const [directorData, setDirectorData] = useState([]);
 
-  const [cast, setCast] = useState({})
+  // const [cast, setCast] = useState({})
   // console.log(`CHECKING CASTDATA1`, castData1);
   // console.log(`CHECKING DIRECTOR`, directorData);
   //wrap the api call in the useEffect State
@@ -134,9 +134,9 @@ const MovieApi = (props) => {
         title={movieData.title}
         releaseDate={movieData.release_date}
         director={movieData.director}
-        stars1={castData1}
-        stars2={castData2}
-        stars3={castData3}
+        // stars1={castData1}
+        // stars2={castData2}
+        // stars3={castData3}
         stars={movieData.stars}
       /> : null
       }

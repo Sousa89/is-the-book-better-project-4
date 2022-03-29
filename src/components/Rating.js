@@ -1,6 +1,6 @@
 // Rating.js
 import { useState } from "react";
-import Winner from "./Winner";
+// import Winner from "./Winner";
 
 const Rating = (props) => {
   const newBookRating = props.bRating * 2;

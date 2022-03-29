@@ -1,5 +1,5 @@
 // Verus.js
-import BackButton2 from "./BackButton2";
+// import BackButton2 from "./BackButton2";
 
 const Versus = (props) => {
     return (
