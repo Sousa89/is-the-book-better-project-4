@@ -323,7 +323,8 @@ a {
   background: skyblue;
 }
 
-.formComp button:hover {
+.formComp button:hover,
+.formComp button:focus {
   border: none;
   border-radius: 10px;
   background-color: #ace8cd;
@@ -362,7 +363,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  /* font-size: 3rem; */
 }
 
 .title h1 {
@@ -483,7 +484,8 @@ a {
   box-shadow: 3px 3px 3px;
   margin-left: 50%;
 }
-.winnerBtn:hover {
+.winnerBtn:hover,
+.winnerBtn:focus {
   cursor: pointer;
   color: red;
 }
@@ -510,7 +512,8 @@ a {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
-.back2 button:hover {
+.back2 button:hover,
+.back2 button:focus {
   cursor: pointer;
   color: red;
 }
@@ -553,7 +556,8 @@ a {
   background: skyblue;
   box-shadow: 3px 3px 3px;
 }
-.back button:hover {
+.back button:hover,
+.back button:focus {
   cursor: pointer;
   color: red;
 }
@@ -602,15 +606,17 @@ video {
 .titleItems {
   list-style: none;
 }
-.titleList:hover {
+.titleList:hover,
+.titleList:focus {
   color: #3fc589;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
 }
 .subHeader {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-family: "Maitree", sans-serif;
+  line-height: 1.1;
 }
 .itemMessage {
   background-color: #0000009e;
@@ -817,8 +823,8 @@ footer {
   .bookApi .generalApiContainer {
     margin-bottom: 15%;
   }
-  .title h1 {
-    font-size: 2.2rem;
+  .App .results h1 {
+    font-size: 1.7rem;
     margin-bottom: 45px;
   }
 
@@ -832,11 +838,11 @@ footer {
     width: 100%;
     margin-left: 6%;
   }
-  .generalApiContainer .textContainer {
-    width: 100%;
+  .App .wrapper .generalApiContainer .textContainer {
+    width: 95%;
   }
-  .generalApiContainer .imageContainer {
-    width: 100%;
+  .App .wrapper .generalApiContainer .imageContainer {
+    width: 95%;
   }
 
   .generalApiContainer img {
@@ -859,6 +865,9 @@ footer {
   .wrapper {
     margin-bottom: 35%;
   }
+  .subHeader {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 445px) {
@@ -879,8 +888,8 @@ footer {
   .bookApi .generalApiContainer {
     margin-bottom: 15%;
   }
-  .title h1 {
-    font-size: 2.2rem;
+  .App .results .title h1 {
+    font-size: 1.7rem;
     margin-bottom: 45px;
   }
 
@@ -895,14 +904,14 @@ footer {
     margin-left: 18%;
   }
   .wrapper .generalApiContainer .textContainer {
-    width: 80%;
+    width: 95%;
   }
 
   .generalApiContainer img {
     width: 100%;
   }
   .wrapper .generalApiContainer .imageContainer {
-    width: 80%;
+    width: 95%;
   }
   .winnerBtn {
     margin-left: 10%;
@@ -941,6 +950,15 @@ footer {
 @media screen and (max-width: 570px) {
   .itemMessage {
     height: 100px;
+  }
+  .App .results .title h1 {
+    font-size: 1.8rem;
+  }
+  .bigTitle {
+    font-size: 1.7rem;
+    font-family: "Maitree", sans-serif;
+    line-height: 1.1;
+    font-weight: 600;
   }
 }
 
@@ -1043,7 +1061,7 @@ footer {
       margin-left: -100%;
     }
     to {
-      margin-left: 30%;
+      margin-left: 5%;
     }
   }
   .itemMessage {
@@ -1052,6 +1070,9 @@ footer {
 }
 
 @media screen and (max-width: 725px) {
+  .itemMessage {
+    height: 10%;
+  }
   .errorMessage {
     font-size: 1.25rem;
   }
@@ -1078,9 +1099,9 @@ footer {
   .bookApi .generalApiContainer {
     margin-bottom: 15%;
   }
-  .title h1 {
+  .App .results .title h1 {
     font-size: 2.2rem;
-    margin-bottom: 45px;
+    margin-bottom: 15%;
   }
 
   .button2 {
@@ -1155,11 +1176,17 @@ footer {
   .itemMessage {
     width: 70%;
   }
+  .App .results .title h1 {
+    margin-bottom: 35%;
+  }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1060px) {
   .winnerBtnContainer .winnerBtn {
     margin-left: 4%;
+  }
+  .title h1 {
+    margin-bottom: 20%;
   }
 }
 
