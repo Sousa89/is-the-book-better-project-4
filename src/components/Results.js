@@ -1,7 +1,7 @@
 // Results.js
 import BookApi from "./BookApi";
 import MovieApi from "./MovieApi";
-import BackButton from "./BackButton";
+import BackButton from "./components/BackButton";
 import BackButton2 from "./BackButton2";
 import WinnerButton from "./WinnerButton";
 import { useState } from "react";
