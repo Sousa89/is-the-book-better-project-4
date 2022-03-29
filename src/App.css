@@ -538,7 +538,7 @@ a {
     margin-left: -100%;
   }
   to {
-    margin-left: 32%;
+    margin-left: 16%;
   }
 } */
 
@@ -804,7 +804,7 @@ footer {
     margin-top: 40%;
   }
   .bookApi {
-    margin-bottom: 30%;
+    margin-bottom: 15%;
   }
   .bookApi .display,
   .movieApi .display {
@@ -812,11 +812,141 @@ footer {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin: 0 10px 70px 10px;
-    padding: 35px;
+    margin: 50px 10px 0px 10px;
+  }
+  .bookApi .generalApiContainer {
+    margin-bottom: 15%;
   }
   .title h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 45px;
+  }
+
+  .button2 {
+    flex-direction: column;
+  }
+  .back2 {
+    width: 100%;
+  }
+  .back2 button {
+    width: 100%;
+    margin-left: 6%;
+  }
+  .generalApiContainer .textContainer {
+    width: 100%;
+  }
+  .generalApiContainer .imageContainer {
+    width: 100%;
+  }
+
+  .generalApiContainer img {
+    width: 100%;
+  }
+  .winnerBtnContainer {
+    width: 100%;
+  }
+  .winnerBtn {
+    margin: 0;
+    margin-left: 10%;
+    width: 85%;
+  }
+  .versus {
+    font-size: 3rem;
+  }
+  .versusRatingContainer {
+    margin: 30px 0px;
+  }
+  .wrapper {
+    margin-bottom: 35%;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .bookApi {
+    margin-bottom: 25%;
+  }
+  .bookApi {
+    margin-bottom: 15%;
+  }
+  .bookApi .display,
+  .movieApi .display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 50px 10px 0px 10px;
+  }
+  .bookApi .generalApiContainer {
+    margin-bottom: 15%;
+  }
+  .title h1 {
+    font-size: 2.2rem;
+    margin-bottom: 45px;
+  }
+
+  .button2 {
+    flex-direction: column;
+  }
+  .back2 {
+    width: 100%;
+  }
+  .back2 button {
+    width: 85%;
+    margin-left: 18%;
+  }
+  .wrapper .generalApiContainer .textContainer {
+    width: 80%;
+  }
+
+  .generalApiContainer img {
+    width: 100%;
+  }
+  .wrapper .generalApiContainer .imageContainer {
+    width: 80%;
+  }
+  .winnerBtn {
+    margin-left: 10%;
+    width: 85%;
+  }
+  .winnerBtnContainer {
+    width: 100%;
+  }
+  .versus {
+    font-size: 3rem;
+    margin-left: 8%;
+  }
+  .versusRatingContainer {
+    margin: 30px 0px;
+  }
+  .wrapper {
+    margin-bottom: 35%;
+  }
+  .App .wrapper .rating {
+    width: 95%;
+  }
+  .ratingTextContainer h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  .errorMessage {
+    font-size: 1rem;
+  }
+  .itemMessage {
+    height: 10%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .itemMessage {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 609px) {
+  .errorMessage {
+    font-size: 1.1rem;
   }
 }
 
@@ -844,32 +974,220 @@ footer {
     height: 34px;
     margin-top: 40%;
   }
-}
-@media screen and (max-width: 1015px) {
+  .bookApi {
+    margin-bottom: 25%;
+  }
+  .bookApi {
+    margin-bottom: 15%;
+  }
+  .bookApi .display,
+  .movieApi .display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 50px 10px 0px 10px;
+  }
+  .bookApi .generalApiContainer {
+    margin-bottom: 15%;
+  }
+  .title h1 {
+    font-size: 2.2rem;
+    margin-bottom: 45px;
+  }
+
+  .button2 {
+    flex-direction: column;
+  }
+  .back2 {
+    width: 100%;
+  }
+  .back2 button {
+    width: 85%;
+    margin-left: 18%;
+  }
+  .generalApiContainer .textContainer {
+    width: 100%;
+  }
+
+  .generalApiContainer img {
+    width: 100%;
+    /* object-fit: cover; */
+  }
+  .generalApiContainer .imageContainer {
+    width: 100%;
+  }
+  .winnerBtn {
+    margin-left: 10%;
+    width: 85%;
+  }
+  .winnerBtnContainer {
+    width: 100%;
+  }
+  .versus {
+    font-size: 3rem;
+    margin-left: 8%;
+  }
+  .versusRatingContainer {
+    margin: 30px 0px;
+  }
+  .wrapper {
+    margin-bottom: 35%;
+  }
+  .App .wrapper .rating {
+    margin-left: 5%;
+    animation: leftToRight 3s ease-in-out;
+  }
+  @keyframes leftToRight {
+    from {
+      margin-left: -100%;
+    }
+    to {
+      margin-left: 30%;
+    }
+  }
   .itemMessage {
-    width: 70%;
+    height: 100px;
   }
 }
+
 @media screen and (max-width: 725px) {
   .errorMessage {
     font-size: 1.25rem;
   }
 }
-@media screen and (max-width: 609px) {
+
+@media screen and (max-width: 785px) {
   .errorMessage {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
-}
-@media screen and (max-width: 505px) {
-  .errorMessage {
-    font-size: 1rem;
-  }
-  .itemMessage {
-    height: 10%;
-  }
-}
-@media screen and (max-width: 445px) {
   .bookApi {
     margin-bottom: 25%;
   }
+  .bookApi {
+    margin-bottom: 15%;
+  }
+  .bookApi .display,
+  .movieApi .display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 50px 10px 0px 10px;
+  }
+  .bookApi .generalApiContainer {
+    margin-bottom: 15%;
+  }
+  .title h1 {
+    font-size: 2.2rem;
+    margin-bottom: 45px;
+  }
+
+  .button2 {
+    flex-direction: column;
+  }
+  .back2 {
+    width: 100%;
+    margin-right: 13%;
+  }
+  .back2 button {
+    width: 85%;
+    margin-left: 18%;
+  }
+  .generalApiContainer .textContainer {
+    width: 85%;
+  }
+
+  .generalApiContainer img {
+    width: 100%;
+    /* object-fit: cover; */
+  }
+  .generalApiContainer .imageContainer {
+    width: 85%;
+  }
+  .winnerBtn {
+    margin-left: 12%;
+    width: 85%;
+  }
+  .winnerBtnContainer {
+    width: 100%;
+  }
+  .versusRatingContainer .versus {
+    font-size: 3.5rem;
+    margin-right: 35%;
+  }
+  .versusRatingContainer {
+    margin: 30px 0px;
+  }
+  .wrapper {
+    margin-bottom: 35%;
+  }
+  .wrapper .rating {
+    margin-left: 16%;
+  }
+  @keyframes leftToRight {
+    from {
+      margin-left: -100%;
+    }
+    to {
+      margin-left: 16%;
+    }
+  }
 }
+
+@media screen and (max-width: 980px) {
+  .winnerBtnContainer {
+    width: 100%;
+  }
+  .winnerBtnContainer .winnerBtn {
+    margin-left: 4%;
+    width: 94%;
+  }
+  .back2 {
+    width: 100%;
+  }
+  .back2 button {
+    width: 94%;
+  }
+}
+
+@media screen and (max-width: 1015px) {
+  .itemMessage {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .winnerBtnContainer .winnerBtn {
+    margin-left: 4%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .rating {
+    margin-left: 31%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .itemMessage {
+    width: 70%;
+  }
+  .versus {
+    font-size: 4rem;
+    margin-right: 100px;
+  }
+  .winnerBtn {
+    margin-left: 15%;
+    /* width: 85%; */
+  }
+  .back2 button {
+    margin-left: 10%;
+  }
+}
+
+/* 
+.versusRatingContainer {
+  /* margin: 55px 0; */
+/* margin: 24px 0;
+} */
