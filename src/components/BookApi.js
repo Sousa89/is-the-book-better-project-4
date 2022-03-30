@@ -4,6 +4,7 @@ import axios from "axios";
 import Display from "./Display";
 import Loading from "./Loading";
 import { useState, useEffect } from "react";
+import BackButton from "./BackButton";
 
 const BookApi = (props) => {
   const [bookData, setBookData] = useState({});
@@ -54,7 +55,11 @@ const BookApi = (props) => {
   const initalCheck = (titles, data) => {
     if (props.selectedIndex) {
       setBookData(data[props.selectedIndex].volumeInfo);
-      setBookImage(data[props.selectedIndex].volumeInfo.imageLinks.thumbnail);
+      if (data[props.selectedIndex].volumeInfo.imageLinks) {
+        setBookImage(data[props.selectedIndex].volumeInfo.imageLinks.thumbnail);
+      } else {
+        setBookImage('https://islandpress.org/sites/default/files/default_book_cover_2015.jpg')
+      }
       props.getTitle2(data[props.selectedIndex].volumeInfo.title);
       props.getBookRating2(data[props.selectedIndex].volumeInfo.averageRating);
     } else {
@@ -66,7 +71,11 @@ const BookApi = (props) => {
       // if it does matches then get the book data to that title
       if (index !== -1) {
         setBookData(data[index].volumeInfo);
-        setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+        if (data[index].volumeInfo.imageLinks) {
+          setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+        } else {
+          setBookImage('https://islandpress.org/sites/default/files/default_book_cover_2015.jpg')
+        }
         props.getTitle2(data[index].volumeInfo.title);
         props.getBookRating2(data[index].volumeInfo.averageRating);
       }
@@ -76,11 +85,24 @@ const BookApi = (props) => {
   // set the book data to selected book title
   const handleClick = (index) => {
     setBookData(data[index].volumeInfo);
-    setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+    if (data[index].volumeInfo.imageLinks) {
+      setBookImage(data[index].volumeInfo.imageLinks.thumbnail);
+    } else {
+      setBookImage('https://islandpress.org/sites/default/files/default_book_cover_2015.jpg')
+    }
     props.getTitle2(data[index].volumeInfo.title);
     props.getBookRating2(data[index].volumeInfo.averageRating);
     props.getIndex2(index);
   };
+
+
+  // attemping to refractor code
+  // const passInfo = (info) => {
+  //   setBookData(data[info].volumeInfo);
+  //   setBookImage(data[info].volumeInfo.imageLinks.thumbnail);
+  //   props.getTitle2(data[info].volumeInfo.title);
+  //   props.getBookRating2(data[info].volumeInfo.averageRating);
+  // }
 
   return (
     <div className="bookApi generalApiContainer">
@@ -105,6 +127,7 @@ const BookApi = (props) => {
                 );
               })}
             </div>
+            <BackButton />
           </div>
         ) : (
           <Display
